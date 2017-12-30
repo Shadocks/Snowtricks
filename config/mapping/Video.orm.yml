@@ -1,0 +1,18 @@
+App\Entity\Video:
+    type: entity
+    repositoryClass: App\Repository\VideoRepository
+    table: video
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        url:
+            type: string
+    manyToOne:
+        trick:
+            targetEntity: App\Entity\Trick
+            inversedBy: video
+            joinColumn:
+                name: trick_id
+                referencedColumnName: id

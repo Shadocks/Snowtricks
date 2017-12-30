@@ -1,0 +1,53 @@
+App\Entity\User:
+    type: entity
+    repositoryClass: App\Repository\UserRepository
+    table: user
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        firstName:
+            type: string
+        lastName:
+            type: string
+        pseudo:
+            type: string
+        mail:
+            type: string
+        password:
+            type: string
+        plainPassword:
+            type: string
+            name: plain_password
+        roles:
+            type: array
+        active:
+            type: boolean
+        validated:
+            type: boolean
+        validationDate:
+            type: datetime
+            name: validation_date
+        creationDate:
+            type: datetime
+            name: creation_date
+        validationToken:
+            type: string
+            name: validation_token
+        resetToken:
+            type: string
+            name: reset_token
+    oneToOne:
+        picture:
+            targetEntity: App\Entity\Picture
+            mappedBy: user
+            cascade: [ persist ]
+            orphanRemoval: true
+    oneToMany:
+        trick:
+            targetEntity: App\Entity\Trick
+            mappedBy: user
+        comment:
+            targetEntity: App\Entity\Comment
+            mappedBy: user
