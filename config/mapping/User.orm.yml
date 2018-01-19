@@ -42,12 +42,16 @@ App\Entity\User:
         picture:
             targetEntity: App\Entity\Picture
             mappedBy: user
-            cascade: [ persist ]
+            cascade: [ "persist" ]
             orphanRemoval: true
     oneToMany:
         trick:
             targetEntity: App\Entity\Trick
             mappedBy: user
+            cascade: [ "persist" ]
+            orphanRemoval: true
         comment:
             targetEntity: App\Entity\Comment
             mappedBy: user
+            cascade: [ "persist" ]
+            orphanRemoval: true

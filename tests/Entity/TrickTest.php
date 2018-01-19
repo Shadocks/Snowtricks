@@ -8,6 +8,7 @@ use App\Entity\Picture;
 use App\Entity\Trick;
 use App\Entity\User;
 use App\Entity\Video;
+use Doctrine\Common\Collections\ArrayCollection;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -83,24 +84,24 @@ class TrickTest extends TestCase
     {
         $this->trick->setPicture($this->picture);
 
-        static::assertInstanceOf(Picture::class, $this->trick->getPicture());
-        static::assertEquals(0, $this->trick->getPicture()->getId());
+        static::assertInstanceOf(ArrayCollection::class, $this->trick->getPicture());
+        static::assertEquals(0, $this->trick->getPicture()->get(0)->getId());
     }
 
     public function testVideoRelation()
     {
         $this->trick->setVideo($this->video);
 
-        static::assertInstanceOf(Video::class, $this->trick->getVideo());
-        static::assertEquals(1, $this->trick->getVideo()->getId());
+        static::assertInstanceOf(ArrayCollection::class, $this->trick->getVideo());
+        static::assertEquals(1, $this->trick->getVideo()->get(0)->getId());
     }
 
     public function testCommentRelation()
     {
         $this->trick->setComment($this->comment);
 
-        static::assertInstanceOf(Comment::class, $this->trick->getComment());
-        static::assertEquals(2, $this->trick->getComment()->getId());
+        static::assertInstanceOf(ArrayCollection::class, $this->trick->getComment());
+        static::assertEquals(2, $this->trick->getComment()->get(0)->getId());
     }
 
     public function testUserRelation()

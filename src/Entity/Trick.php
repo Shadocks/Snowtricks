@@ -4,6 +4,7 @@ namespace App\Entity;
 
 
 use App\Entity\Interfaces\TrickInterface;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Class Trick
@@ -32,22 +33,22 @@ class Trick implements TrickInterface
     private $description;
 
     /**
-     * @var /Datetime
+     * @var \DateTime
      */
     private $creationDate;
 
     /**
-     * @var /Datetime
+     * @var \Datetime
      */
     private $modificationDate;
 
     /**
-     * @var Picture
+     * @var \ArrayAccess
      */
     private $picture;
 
     /**
-     * @var Video
+     * @var \ArrayAccess
      */
     private $video;
 
@@ -57,9 +58,20 @@ class Trick implements TrickInterface
     private $user;
 
     /**
-     * @var Comment
+     * @var \ArrayAccess
      */
     private $comment;
+
+    /**
+     * Trick constructor.
+     */
+    public function __construct()
+    {
+        $this->creationDate = new \DateTime();
+        $this->picture = new ArrayCollection();
+        $this->video = new ArrayCollection();
+        $this->comment = new ArrayCollection();
+    }
 
     /**
      * @return int
@@ -150,9 +162,9 @@ class Trick implements TrickInterface
     }
 
     /**
-     * @return Picture
+     * @return \ArrayAccess
      */
-    public function getPicture(): Picture
+    public function getPicture(): \ArrayAccess
     {
         return $this->picture;
     }
@@ -162,13 +174,13 @@ class Trick implements TrickInterface
      */
     public function setPicture(Picture $picture)
     {
-        $this->picture = $picture;
+        $this->picture[] = $picture;
     }
 
     /**
-     * @return Video
+     * @return \ArrayAccess
      */
-    public function getVideo(): Video
+    public function getVideo(): \ArrayAccess
     {
         return $this->video;
     }
@@ -178,7 +190,7 @@ class Trick implements TrickInterface
      */
     public function setVideo(Video $video)
     {
-        $this->video = $video;
+        $this->video[] = $video;
     }
 
     /**
@@ -198,9 +210,9 @@ class Trick implements TrickInterface
     }
 
     /**
-     * @return Comment
+     * @return \ArrayAccess
      */
-    public function getComment(): Comment
+    public function getComment(): \ArrayAccess
     {
         return $this->comment;
     }
@@ -210,6 +222,6 @@ class Trick implements TrickInterface
      */
     public function setComment(Comment $comment)
     {
-        $this->comment = $comment;
+        $this->comment[] = $comment;
     }
 }
