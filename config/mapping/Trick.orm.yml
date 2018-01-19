@@ -24,17 +24,17 @@ App\Entity\Trick:
         picture:
             targetEntity: App\Entity\Picture
             mappedBy: trick
-            cascade: [ persist ]
+            cascade: [ "persist" ]
             orphanRemoval: true
         video:
             targetEntity: App\Entity\Video
             mappedBy: trick
-            cascade: [ persist ]
+            cascade: [ "persist" ]
             orphanRemoval: true
         comment:
             targetEntity: App\Entity\Comment
             mappedBy: trick
-            cascade: [ persist ]
+            cascade: [ "persist" ]
             orphanRemoval: true
     manyToOne:
         user:

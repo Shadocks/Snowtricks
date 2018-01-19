@@ -1,4 +1,6 @@
 {
+    "name": "shadocks/snowtricks",
+    "description": "symfony learning project",
     "type": "project",
     "license": "proprietary",
     "require": {
@@ -6,6 +8,7 @@
         "phpunit/phpunit": "^6.5",
         "symfony/console": "^4.0",
         "symfony/flex": "^1.0",
+        "symfony/form": "^4.0",
         "symfony/framework-bundle": "^4.0",
         "symfony/lts": "^4@dev",
         "symfony/orm-pack": "^1.0",

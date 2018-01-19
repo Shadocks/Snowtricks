@@ -70,9 +70,9 @@ interface TrickInterface
     public function setModificationDate(\DateTime $modificationDate);
 
     /**
-     * @return Picture
+     * @return \ArrayAccess
      */
-    public function getPicture(): Picture;
+    public function getPicture(): \ArrayAccess;
 
     /**
      * @param Picture $picture
@@ -80,9 +80,9 @@ interface TrickInterface
     public function setPicture(Picture $picture);
 
     /**
-     * @return Video
+     * @return \ArrayAccess
      */
-    public function getVideo(): Video;
+    public function getVideo(): \ArrayAccess;
 
     /**
      * @param Video $video
@@ -100,9 +100,9 @@ interface TrickInterface
     public function setUser(User $user);
 
     /**
-     * @return Comment
+     * @return \ArrayAccess
      */
-    public function getComment(): Comment;
+    public function getComment(): \ArrayAccess;
 
     /**
      * @param Comment $comment

@@ -37,6 +37,14 @@ class Comment implements CommentInterface
     private $user;
 
     /**
+     * Comment constructor.
+     */
+    public function __construct()
+    {
+        $this->creationDate = new \DateTime();
+    }
+
+    /**
      * @return int
      */
     public function getId(): ?int
