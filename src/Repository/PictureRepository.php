@@ -11,5 +11,16 @@ use Doctrine\ORM\EntityRepository;
  */
 class PictureRepository extends EntityRepository
 {
-
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function findOnePictureBy($id)
+    {
+        return $this->createQueryBuilder('p')
+                    ->where('p.id = :id')
+                    ->setParameter('id', $id)
+                    ->getQuery()
+                    ->getOneOrNullResult();
+    }
 }

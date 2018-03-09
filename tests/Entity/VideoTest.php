@@ -17,7 +17,7 @@ class VideoTest extends TestCase
 
     private $trick;
 
-    public function setUp()
+    protected function setUp()
     {
         if ($this->video == null) {
             $this->video = new Video();

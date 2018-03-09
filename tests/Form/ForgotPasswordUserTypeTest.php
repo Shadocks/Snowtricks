@@ -16,7 +16,7 @@ class ForgotPasswordUserTypeTest extends TypeTestCase
     public function testDataPass()
     {
         $user = new User();
-        $user->setPseudo('Thor');
+        $user->setUserName('Thor');
 
         $form = $this->factory->create(ForgotPasswordUserType::class, $user);
 

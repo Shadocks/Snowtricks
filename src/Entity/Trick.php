@@ -33,22 +33,22 @@ class Trick implements TrickInterface
     private $description;
 
     /**
-     * @var \DateTime
+     * @var /Datetime
      */
     private $creationDate;
 
     /**
-     * @var \Datetime
+     * @var /Datetime
      */
     private $modificationDate;
 
     /**
-     * @var \ArrayAccess
+     * @var ArrayCollection
      */
     private $picture;
 
     /**
-     * @var \ArrayAccess
+     * @var ArrayCollection
      */
     private $video;
 
@@ -58,7 +58,7 @@ class Trick implements TrickInterface
     private $user;
 
     /**
-     * @var \ArrayAccess
+     * @var ArrayCollection
      */
     private $comment;
 
@@ -84,7 +84,7 @@ class Trick implements TrickInterface
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -100,7 +100,7 @@ class Trick implements TrickInterface
     /**
      * @return string
      */
-    public function getCategory(): string
+    public function getCategory(): ?string
     {
         return $this->category;
     }
@@ -116,7 +116,7 @@ class Trick implements TrickInterface
     /**
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
@@ -170,11 +170,30 @@ class Trick implements TrickInterface
     }
 
     /**
+     * @param ArrayCollection $picture
+     */
+    public function setPicture(ArrayCollection $picture)
+    {
+        $this->picture = $picture;
+    }
+
+    /**
      * @param Picture $picture
      */
-    public function setPicture(Picture $picture)
+    public function addPicture(Picture $picture)
     {
+        if ($this->picture->contains($picture)) {
+            return;
+        }
+
         $this->picture[] = $picture;
+        $picture->setTrick($this);
+    }
+
+    public function removePicture(Picture $picture)
+    {
+        $this->picture->removeElement($picture);
+        $picture->setTrick(null);
     }
 
     /**
@@ -188,9 +207,20 @@ class Trick implements TrickInterface
     /**
      * @param Video $video
      */
-    public function setVideo(Video $video)
+    public function addVideo(Video $video)
     {
+        if ($this->video->contains($video)) {
+            return;
+        }
+
         $this->video[] = $video;
+        $video->setTrick($this);
+    }
+
+    public function removeVideo(Video $video)
+    {
+        $this->video->removeElement($video);
+        $video->setTrick(null);
     }
 
     /**

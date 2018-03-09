@@ -4,6 +4,7 @@ namespace App\Form;
 
 
 use App\Entity\User;
+use App\Subscriber\Form\User\UserPictureSubscriber;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -11,18 +12,44 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+/**
+ * Class RegistrationUserType
+ * @package App\Form
+ */
 class RegistrationUserType extends AbstractType
 {
+    /**
+     * @var UserPictureSubscriber
+     */
+    private $userPictureSubscriber;
+
+    /**
+     * RegistrationUserType constructor.
+     * @param UserPictureSubscriber $userPictureSubscriber
+     */
+    public function __construct(UserPictureSubscriber $userPictureSubscriber)
+    {
+        $this->userPictureSubscriber = $userPictureSubscriber;
+    }
+
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array $options
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('pseudo',TextType::class)
-            ->add('picture', PictureType::class)
+            ->add('userName',TextType::class)
             ->add('mail',EmailType::class)
-            ->add('password',PasswordType::class)
+            ->add('plainPassword',PasswordType::class)
+            ->add('picture', PictureType::class, array('mapped' => false, 'required' => false))
+            ->addEventSubscriber($this->userPictureSubscriber)
         ;
     }
 
+    /**
+     * @param OptionsResolver $resolver
+     */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([

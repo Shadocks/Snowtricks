@@ -26,7 +26,7 @@ class UserTest extends TestCase
 
     private $date;
 
-    public function setUp()
+    protected function setUp()
     {
         if ($this->user == null) {
             $this->user = new User();
@@ -59,7 +59,7 @@ class UserTest extends TestCase
     {
         $this->user->setFirstName('Tony');
         $this->user->setLastName('Stark');
-        $this->user->setPseudo('MK1');
+        $this->user->setUserName('MK1');
         $this->user->setMail('tony.stark@gmail.com');
         $this->user->setPassword('veronica');
         $this->user->setPlainPassword('veronica');
@@ -74,7 +74,7 @@ class UserTest extends TestCase
         static::assertNull($this->user->getId());
         static::assertEquals('Tony', $this->user->getFirstName());
         static::assertEquals('Stark', $this->user->getLastName());
-        static::assertEquals('MK1', $this->user->getPseudo());
+        static::assertEquals('MK1', $this->user->getUserName());
         static::assertEquals('tony.stark@gmail.com', $this->user->getMail());
         static::assertEquals('veronica', $this->user->getPassword());
         static::assertEquals('veronica', $this->user->getPlainPassword());

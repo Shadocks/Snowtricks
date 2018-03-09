@@ -29,38 +29,44 @@ class TrickTest extends TestCase
 
     private $date;
 
-    public function setUp()
+    private $arrayCollection;
+
+    protected function setUp()
     {
-        if ($this->trick == null) {
+        if ($this->trick === null) {
             $this->trick = new Trick();
         }
 
-        if ($this->picture == null) {
+        if ($this->picture === null) {
             $this->picture = $this->createMock(Picture::class);
             $this->picture->method('getId')
                 ->willReturn(0);
         }
 
-        if ($this->video == null) {
+        if ($this->video === null) {
             $this->video = $this->createMock(Video::class);
             $this->video->method('getId')
                 ->willReturn(1);
         }
 
-        if ($this->comment == null) {
+        if ($this->comment === null) {
             $this->comment = $this->createMock(Comment::class);
             $this->comment->method('getId')
                 ->willReturn(2);
         }
 
-        if ($this->user == null) {
+        if ($this->user === null) {
             $this->user = $this->createMock(User::class);
             $this->user->method('getId')
                 ->willReturn(3);
         }
 
-        if ($this->date == null) {
+        if ($this->date === null) {
             $this->date = new \DateTime();
+        }
+
+        if ($this->arrayCollection === null) {
+            $this->arrayCollection = $this->createMock(ArrayCollection::class);
         }
     }
 
@@ -82,17 +88,16 @@ class TrickTest extends TestCase
 
     public function testPictureRelation()
     {
-        $this->trick->setPicture($this->picture);
+        $this->trick->setPicture($this->arrayCollection);
 
         static::assertInstanceOf(ArrayCollection::class, $this->trick->getPicture());
-        static::assertEquals(0, $this->trick->getPicture()->get(0)->getId());
     }
 
     public function testVideoRelation()
     {
-        $this->trick->setVideo($this->video);
+        $this->trick->addVideo($this->video);
 
-        static::assertInstanceOf(ArrayCollection::class, $this->trick->getVideo());
+        static::assertInstanceOf(\ArrayAccess::class, $this->trick->getVideo());
         static::assertEquals(1, $this->trick->getVideo()->get(0)->getId());
     }
 
@@ -100,7 +105,7 @@ class TrickTest extends TestCase
     {
         $this->trick->setComment($this->comment);
 
-        static::assertInstanceOf(ArrayCollection::class, $this->trick->getComment());
+        static::assertInstanceOf(\ArrayAccess::class, $this->trick->getComment());
         static::assertEquals(2, $this->trick->getComment()->get(0)->getId());
     }
 

@@ -4,6 +4,7 @@ namespace App\Entity;
 
 
 use App\Entity\Interfaces\PictureInterface;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * Class Picture
@@ -22,7 +23,12 @@ class Picture implements PictureInterface
     private $name;
 
     /**
-     * @var string
+     * @var
+     */
+    private $url;
+
+    /**
+     * @var
      */
     private $file;
 
@@ -47,7 +53,7 @@ class Picture implements PictureInterface
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -61,17 +67,33 @@ class Picture implements PictureInterface
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getFile(): string
+    public function getUrl(): ?string
+    {
+        return $this->url;
+    }
+
+    /**
+     * @param string $url
+     */
+    public function setUrl(string $url)
+    {
+        $this->url = $url;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getFile()
     {
         return $this->file;
     }
 
     /**
-     * @param string $file
+     * @param File $file
      */
-    public function setFile(string $file)
+    public function setFile(File $file)
     {
         $this->file = $file;
     }
@@ -79,7 +101,7 @@ class Picture implements PictureInterface
     /**
      * @return User
      */
-    public function getUser(): User
+    public function getUser(): ?User
     {
         return $this->user;
     }
@@ -95,7 +117,7 @@ class Picture implements PictureInterface
     /**
      * @return Trick
      */
-    public function getTrick(): Trick
+    public function getTrick(): ?Trick
     {
         return $this->trick;
     }
@@ -103,7 +125,7 @@ class Picture implements PictureInterface
     /**
      * @param Trick $trick
      */
-    public function setTrick(Trick $trick)
+    public function setTrick(Trick $trick = null)
     {
         $this->trick = $trick;
     }

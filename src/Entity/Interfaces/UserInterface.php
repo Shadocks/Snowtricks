@@ -21,7 +21,7 @@ interface UserInterface
     /**
      * @return string
      */
-    public function getFirstName(): string;
+    public function getFirstName(): ?string;
 
     /**
      * @param string $firstName
@@ -31,7 +31,7 @@ interface UserInterface
     /**
      * @return string
      */
-    public function getLastName(): string;
+    public function getLastName(): ?string;
 
     /**
      * @param string $lastName
@@ -41,17 +41,17 @@ interface UserInterface
     /**
      * @return string
      */
-    public function getPseudo(): string;
+    public function getUserName(): ?string;
 
     /**
-     * @param string $pseudo
+     * @param string $userName
      */
-    public function setPseudo(string $pseudo);
+    public function setUserName(string $userName);
 
     /**
-     * @return Picture
+     * @return Picture|null
      */
-    public function getPicture(): Picture;
+    public function getPicture(): ?Picture;
 
     /**
      * @param Picture $picture
@@ -61,7 +61,7 @@ interface UserInterface
     /**
      * @return string
      */
-    public function getMail(): string;
+    public function getMail(): ?string;
 
     /**
      * @param string $mail
@@ -71,7 +71,7 @@ interface UserInterface
     /**
      * @return string
      */
-    public function getPassword(): string;
+    public function getPassword(): ?string;
 
     /**
      * @param string $password
@@ -81,7 +81,7 @@ interface UserInterface
     /**
      * @return string
      */
-    public function getPlainPassword(): string;
+    public function getPlainPassword(): ?string;
 
     /**
      * @param string $plainPassword
