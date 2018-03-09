@@ -1,0 +1,28 @@
+App\Entity\Picture:
+    type: entity
+    repositoryClass: App\Repository\PictureRepository
+    table: picture
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+            nullable: true
+        url:
+            type: string
+    oneToOne:
+        user:
+            targetEntity: App\Entity\User
+            inversedBy: picture
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+    manyToOne:
+        trick:
+            targetEntity: App\Entity\Trick
+            inversedBy: picture
+            joinColumn:
+                name: trick_id
+                referencedColumnName: id

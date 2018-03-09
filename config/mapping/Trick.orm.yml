@@ -1,0 +1,45 @@
+App\Entity\Trick:
+    type: entity
+    repositoryClass: App\Repository\TrickRepository
+    table: trick
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+        category:
+            type: string
+        description:
+            type: text
+        creationDate:
+            type: datetime
+            name: creation_date
+        modificationDate:
+            type: datetime
+            name: creeation_date
+            nullable: true
+    oneToMany:
+        picture:
+            targetEntity: App\Entity\Picture
+            mappedBy: trick
+            cascade: [ "persist" ]
+            orphanRemoval: true
+        video:
+            targetEntity: App\Entity\Video
+            mappedBy: trick
+            cascade: [ "persist" ]
+            orphanRemoval: true
+        comment:
+            targetEntity: App\Entity\Comment
+            mappedBy: trick
+            cascade: [ "persist" ]
+            orphanRemoval: true
+    manyToOne:
+        user:
+            targetEntity: App\Entity\User
+            inversedBy: trick
+            joinColumn:
+                name: user_id
+                referencedColumnName: id

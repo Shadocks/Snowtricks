@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for C:\wamp64\www\projet\Snowtricks\src/Entity</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../.css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="../.css/nv.d3.min.css" rel="stylesheet" type="text/css">
+  <link href="../.css/style.css" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]>
+  <script src="../.js/html5shiv.min.js"></script>
+  <script src="../.js/respond.min.js"></script>
+  <![endif]-->
+ </head>
+ <body>
+  <header>
+   <div class="container">
+    <div class="row">
+     <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><a href="../index.html">C:\wamp64\www\projet\Snowtricks\src</a></li>
+        <li><a href="index.html">Entity</a></li>
+        <li class="active">(Dashboard)</li>
+
+      </ol>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="User.php.html#13">App\Entity\User</a></td><td class="text-right">77%</td></tr>
+       <tr><td><a href="Trick.php.html#13">App\Entity\Trick</a></td><td class="text-right">82%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="User.php.html#13">App\Entity\User</a></td><td class="text-right">76</td></tr>
+       <tr><td><a href="Trick.php.html#13">App\Entity\Trick</a></td><td class="text-right">33</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Trick.php.html#193"><abbr title="App\Entity\Trick::removePicture">removePicture</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Trick.php.html#220"><abbr title="App\Entity\Trick::removeVideo">removeVideo</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#378"><abbr title="App\Entity\User::serialize">serialize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#391"><abbr title="App\Entity\User::unserialize">unserialize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#400"><abbr title="App\Entity\User::isAccountNonExpired">isAccountNonExpired</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#405"><abbr title="App\Entity\User::isAccountNonLocked">isAccountNonLocked</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#410"><abbr title="App\Entity\User::isCredentialsNonExpired">isCredentialsNonExpired</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#415"><abbr title="App\Entity\User::isEnabled">isEnabled</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#420"><abbr title="App\Entity\User::getSalt">getSalt</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="User.php.html#425"><abbr title="App\Entity\User::eraseCredentials">eraseCredentials</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Trick.php.html#183"><abbr title="App\Entity\Trick::addPicture">addPicture</abbr></a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Trick.php.html#210"><abbr title="App\Entity\Trick::addVideo">addVideo</abbr></a></td><td class="text-right">80%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Trick.php.html#183"><abbr title="App\Entity\Trick::addPicture">addPicture</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Trick.php.html#210"><abbr title="App\Entity\Trick::addVideo">addVideo</abbr></a></td><td class="text-right">2</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 5.3.0</a> using <a href="https://secure.php.net/" target="_top">PHP 7.1.9</a> with <a href="https://xdebug.org/">Xdebug 2.5.5</a> and <a href="https://phpunit.de/">PHPUnit 6.5.5</a> at Fri Mar 9 16:41:15 UTC 2018.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../.js/jquery.min.js" type="text/javascript"></script>
+  <script src="../.js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="../.js/holder.min.js" type="text/javascript"></script>
+  <script src="../.js/d3.min.js" type="text/javascript"></script>
+  <script src="../.js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([0,0,0,0,0,0,0,0,1,1,0,3], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([10,0,0,0,0,0,0,0,0,2,0,79], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[100,12,"<a href=\"Comment.php.html#12\">App\\Entity\\Comment<\/a>"],[100,16,"<a href=\"Picture.php.html#13\">App\\Entity\\Picture<\/a>"],[82.97872340425532,29,"<a href=\"Trick.php.html#13\">App\\Entity\\Trick<\/a>"],[77.94117647058823,50,"<a href=\"User.php.html#13\">App\\Entity\\User<\/a>"],[100,8,"<a href=\"Video.php.html#12\">App\\Entity\\Video<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[100,1,"<a href=\"Comment.php.html#42\">App\\Entity\\Comment::__construct<\/a>"],[100,2,"<a href=\"Comment.php.html#50\">App\\Entity\\Comment::getId<\/a>"],[100,2,"<a href=\"Comment.php.html#58\">App\\Entity\\Comment::getContent<\/a>"],[100,1,"<a href=\"Comment.php.html#66\">App\\Entity\\Comment::setContent<\/a>"],[100,1,"<a href=\"Comment.php.html#74\">App\\Entity\\Comment::getCreationDate<\/a>"],[100,1,"<a href=\"Comment.php.html#82\">App\\Entity\\Comment::setCreationDate<\/a>"],[100,1,"<a href=\"Comment.php.html#90\">App\\Entity\\Comment::getTrick<\/a>"],[100,1,"<a href=\"Comment.php.html#98\">App\\Entity\\Comment::setTrick<\/a>"],[100,1,"<a href=\"Comment.php.html#106\">App\\Entity\\Comment::getUser<\/a>"],[100,1,"<a href=\"Comment.php.html#114\">App\\Entity\\Comment::setUser<\/a>"],[100,2,"<a href=\"Picture.php.html#48\">App\\Entity\\Picture::getId<\/a>"],[100,2,"<a href=\"Picture.php.html#56\">App\\Entity\\Picture::getName<\/a>"],[100,1,"<a href=\"Picture.php.html#64\">App\\Entity\\Picture::setName<\/a>"],[100,2,"<a href=\"Picture.php.html#72\">App\\Entity\\Picture::getUrl<\/a>"],[100,1,"<a href=\"Picture.php.html#80\">App\\Entity\\Picture::setUrl<\/a>"],[100,1,"<a href=\"Picture.php.html#88\">App\\Entity\\Picture::getFile<\/a>"],[100,1,"<a href=\"Picture.php.html#96\">App\\Entity\\Picture::setFile<\/a>"],[100,2,"<a href=\"Picture.php.html#104\">App\\Entity\\Picture::getUser<\/a>"],[100,1,"<a href=\"Picture.php.html#112\">App\\Entity\\Picture::setUser<\/a>"],[100,2,"<a href=\"Picture.php.html#120\">App\\Entity\\Picture::getTrick<\/a>"],[100,1,"<a href=\"Picture.php.html#128\">App\\Entity\\Picture::setTrick<\/a>"],[100,1,"<a href=\"Trick.php.html#68\">App\\Entity\\Trick::__construct<\/a>"],[100,2,"<a href=\"Trick.php.html#79\">App\\Entity\\Trick::getId<\/a>"],[100,2,"<a href=\"Trick.php.html#87\">App\\Entity\\Trick::getName<\/a>"],[100,1,"<a href=\"Trick.php.html#95\">App\\Entity\\Trick::setName<\/a>"],[100,2,"<a href=\"Trick.php.html#103\">App\\Entity\\Trick::getCategory<\/a>"],[100,1,"<a href=\"Trick.php.html#111\">App\\Entity\\Trick::setCategory<\/a>"],[100,2,"<a href=\"Trick.php.html#119\">App\\Entity\\Trick::getDescription<\/a>"],[100,1,"<a href=\"Trick.php.html#127\">App\\Entity\\Trick::setDescription<\/a>"],[100,1,"<a href=\"Trick.php.html#135\">App\\Entity\\Trick::getCreationDate<\/a>"],[100,1,"<a href=\"Trick.php.html#143\">App\\Entity\\Trick::setCreationDate<\/a>"],[100,1,"<a href=\"Trick.php.html#151\">App\\Entity\\Trick::getModificationDate<\/a>"],[100,1,"<a href=\"Trick.php.html#159\">App\\Entity\\Trick::setModificationDate<\/a>"],[100,1,"<a href=\"Trick.php.html#167\">App\\Entity\\Trick::getPicture<\/a>"],[100,1,"<a href=\"Trick.php.html#175\">App\\Entity\\Trick::setPicture<\/a>"],[80,2,"<a href=\"Trick.php.html#183\">App\\Entity\\Trick::addPicture<\/a>"],[0,1,"<a href=\"Trick.php.html#193\">App\\Entity\\Trick::removePicture<\/a>"],[100,1,"<a href=\"Trick.php.html#202\">App\\Entity\\Trick::getVideo<\/a>"],[80,2,"<a href=\"Trick.php.html#210\">App\\Entity\\Trick::addVideo<\/a>"],[0,1,"<a href=\"Trick.php.html#220\">App\\Entity\\Trick::removeVideo<\/a>"],[100,1,"<a href=\"Trick.php.html#229\">App\\Entity\\Trick::getUser<\/a>"],[100,1,"<a href=\"Trick.php.html#237\">App\\Entity\\Trick::setUser<\/a>"],[100,1,"<a href=\"Trick.php.html#245\">App\\Entity\\Trick::getComment<\/a>"],[100,1,"<a href=\"Trick.php.html#253\">App\\Entity\\Trick::setComment<\/a>"],[100,1,"<a href=\"User.php.html#103\">App\\Entity\\User::__construct<\/a>"],[100,2,"<a href=\"User.php.html#112\">App\\Entity\\User::getId<\/a>"],[100,2,"<a href=\"User.php.html#120\">App\\Entity\\User::getFirstName<\/a>"],[100,1,"<a href=\"User.php.html#128\">App\\Entity\\User::setFirstName<\/a>"],[100,2,"<a href=\"User.php.html#136\">App\\Entity\\User::getLastName<\/a>"],[100,1,"<a href=\"User.php.html#144\">App\\Entity\\User::setLastName<\/a>"],[100,2,"<a href=\"User.php.html#152\">App\\Entity\\User::getUserName<\/a>"],[100,1,"<a href=\"User.php.html#160\">App\\Entity\\User::setUserName<\/a>"],[100,2,"<a href=\"User.php.html#168\">App\\Entity\\User::getPicture<\/a>"],[100,1,"<a href=\"User.php.html#176\">App\\Entity\\User::setPicture<\/a>"],[100,2,"<a href=\"User.php.html#185\">App\\Entity\\User::getMail<\/a>"],[100,1,"<a href=\"User.php.html#193\">App\\Entity\\User::setMail<\/a>"],[100,2,"<a href=\"User.php.html#201\">App\\Entity\\User::getPassword<\/a>"],[100,1,"<a href=\"User.php.html#209\">App\\Entity\\User::setPassword<\/a>"],[100,2,"<a href=\"User.php.html#217\">App\\Entity\\User::getPlainPassword<\/a>"],[100,1,"<a href=\"User.php.html#225\">App\\Entity\\User::setPlainPassword<\/a>"],[100,1,"<a href=\"User.php.html#233\">App\\Entity\\User::getRoles<\/a>"],[100,1,"<a href=\"User.php.html#241\">App\\Entity\\User::setRoles<\/a>"],[100,1,"<a href=\"User.php.html#249\">App\\Entity\\User::getActive<\/a>"],[100,1,"<a href=\"User.php.html#257\">App\\Entity\\User::setActive<\/a>"],[100,1,"<a href=\"User.php.html#265\">App\\Entity\\User::getValidated<\/a>"],[100,1,"<a href=\"User.php.html#273\">App\\Entity\\User::setValidated<\/a>"],[100,1,"<a href=\"User.php.html#281\">App\\Entity\\User::getValidationDate<\/a>"],[100,1,"<a href=\"User.php.html#289\">App\\Entity\\User::setValidationDate<\/a>"],[100,1,"<a href=\"User.php.html#297\">App\\Entity\\User::getCreationDate<\/a>"],[100,1,"<a href=\"User.php.html#305\">App\\Entity\\User::setCreationDate<\/a>"],[100,1,"<a href=\"User.php.html#313\">App\\Entity\\User::getValidationToken<\/a>"],[100,1,"<a href=\"User.php.html#321\">App\\Entity\\User::setValidationToken<\/a>"],[100,1,"<a href=\"User.php.html#329\">App\\Entity\\User::getResetToken<\/a>"],[100,1,"<a href=\"User.php.html#337\">App\\Entity\\User::setResetToken<\/a>"],[100,1,"<a href=\"User.php.html#345\">App\\Entity\\User::getTrick<\/a>"],[100,1,"<a href=\"User.php.html#353\">App\\Entity\\User::setTrick<\/a>"],[100,1,"<a href=\"User.php.html#361\">App\\Entity\\User::getComment<\/a>"],[100,1,"<a href=\"User.php.html#369\">App\\Entity\\User::setComment<\/a>"],[0,1,"<a href=\"User.php.html#378\">App\\Entity\\User::serialize<\/a>"],[0,1,"<a href=\"User.php.html#391\">App\\Entity\\User::unserialize<\/a>"],[0,1,"<a href=\"User.php.html#400\">App\\Entity\\User::isAccountNonExpired<\/a>"],[0,1,"<a href=\"User.php.html#405\">App\\Entity\\User::isAccountNonLocked<\/a>"],[0,1,"<a href=\"User.php.html#410\">App\\Entity\\User::isCredentialsNonExpired<\/a>"],[0,1,"<a href=\"User.php.html#415\">App\\Entity\\User::isEnabled<\/a>"],[0,1,"<a href=\"User.php.html#420\">App\\Entity\\User::getSalt<\/a>"],[0,1,"<a href=\"User.php.html#425\">App\\Entity\\User::eraseCredentials<\/a>"],[100,2,"<a href=\"Video.php.html#32\">App\\Entity\\Video::getId<\/a>"],[100,2,"<a href=\"Video.php.html#40\">App\\Entity\\Video::getUrl<\/a>"],[100,1,"<a href=\"Video.php.html#48\">App\\Entity\\Video::setUrl<\/a>"],[100,2,"<a href=\"Video.php.html#56\">App\\Entity\\Video::getTrick<\/a>"],[100,1,"<a href=\"Video.php.html#64\">App\\Entity\\Video::setTrick<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>
