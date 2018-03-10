@@ -5,6 +5,8 @@ namespace App\Entity\Interfaces;
 
 use App\Entity\Trick;
 use App\Entity\User;
+use Symfony\Component\HttpFoundation\File\File;
+
 
 /**
  * Interface PictureInterface
@@ -20,7 +22,7 @@ interface PictureInterface
     /**
      * @return string
      */
-    public function getName(): string;
+    public function getName(): ?string;
 
     /**
      * @param string $name
@@ -28,19 +30,29 @@ interface PictureInterface
     public function setName(string $name);
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getFile(): string;
+    public function getUrl(): ?string;
 
     /**
-     * @param string $file
+     * @param string $url
      */
-    public function setFile(string $file);
+    public function setUrl(string $url);
+
+    /**
+     * @return string
+     */
+    public function getFile();
+
+    /**
+     * @param File $file
+     */
+    public function setFile(File $file);
 
     /**
      * @return User object
      */
-    public function getUser(): User;
+    public function getUser(): ?User;
 
     /**
      * @param User $user
@@ -50,11 +62,11 @@ interface PictureInterface
     /**
      * @return Trick
      */
-    public function getTrick(): Trick;
+    public function getTrick(): ?Trick;
 
     /**
      * @param Trick $trick
      */
-    public function setTrick(Trick $trick);
+    public function setTrick(Trick $trick = null);
 
 }

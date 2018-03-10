@@ -20,7 +20,7 @@ interface CommentInterface
     /**
      * @return string
      */
-    public function getContent(): string;
+    public function getContent(): ?string;
 
     /**
      * @param string $content

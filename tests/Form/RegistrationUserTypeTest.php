@@ -5,7 +5,10 @@ namespace tests\Form;
 
 use App\Entity\Picture;
 use App\Entity\User;
+use App\Form\Extension\PictureTypeExtension;
 use App\Form\RegistrationUserType;
+use App\Subscriber\Form\User\UserPictureSubscriber;
+use Symfony\Component\Form\PreloadedExtension;
 use Symfony\Component\Form\Test\TypeTestCase;
 
 /**
@@ -14,15 +17,36 @@ use Symfony\Component\Form\Test\TypeTestCase;
  */
 class RegistrationUserTypeTest extends TypeTestCase
 {
+    private $picture;
+
+    public function setUp()
+    {
+        if ($this->picture === null) {
+            $this->picture = $this->createMock(Picture::class);;
+        }
+
+        parent::setUp();
+    }
+
+    public function getExtensions()
+    {
+        $pictureUserDefault = '/public/img/avatarDefault.png';
+        $serPictureSubscriber = new UserPictureSubscriber($this->picture, $pictureUserDefault);
+        $registrationUserType = new RegistrationUserType($serPictureSubscriber);
+
+        return [new PreloadedExtension(array($registrationUserType), array())];
+    }
+
+    public function getTypeExtensions()
+    {
+        return [new PictureTypeExtension()];
+    }
+
     public function testDataPass()
     {
-        $picture = $this->createMock(Picture::class);
-        $picture->method('getId')
-                ->willReturn(0);
-
         $user = new User();
-        $user->setPseudo('Stark');
-        $user->setPicture($picture);
+        $user->setUserName('Stark');
+        $user->setPicture($this->picture);
         $user->setMail('stark.industry@gmail.com');
         $user->setPassword('veronica');
 

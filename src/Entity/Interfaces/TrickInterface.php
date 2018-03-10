@@ -7,6 +7,8 @@ use App\Entity\Picture;
 use App\Entity\Video;
 use App\Entity\Comment;
 use App\Entity\User;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * Interface TrickInterface
@@ -22,7 +24,7 @@ interface TrickInterface
     /**
      * @return string
      */
-    public function getName(): string;
+    public function getName(): ?string;
 
     /**
      * @param string $name
@@ -32,7 +34,7 @@ interface TrickInterface
     /**
      * @return string
      */
-    public function getCategory(): string;
+    public function getCategory(): ?string;
 
     /**
      * @param string $category
@@ -42,7 +44,7 @@ interface TrickInterface
     /**
      * @return string
      */
-    public function getDescription(): string;
+    public function getDescription(): ?string;
 
     /**
      * @param string $description
@@ -75,9 +77,20 @@ interface TrickInterface
     public function getPicture(): \ArrayAccess;
 
     /**
+     * @param ArrayCollection $arrayCollection
+     */
+    public function setPicture(ArrayCollection $arrayCollection);
+
+    /**
      * @param Picture $picture
      */
-    public function setPicture(Picture $picture);
+    public function addPicture(Picture $picture);
+
+    /**
+     * @param Picture $picture
+     * @return mixed
+     */
+    public function removePicture(Picture $picture);
 
     /**
      * @return \ArrayAccess
@@ -87,7 +100,12 @@ interface TrickInterface
     /**
      * @param Video $video
      */
-    public function setVideo(Video $video);
+    public function addVideo(Video $video);
+
+    /**
+     * @param Video $video
+     */
+    public function removeVideo(Video $video);
 
     /**
      * @return User

@@ -37,7 +37,7 @@ class Video implements VideoInterface
     /**
      * @return string
      */
-    public function getUrl(): string
+    public function getUrl(): ?string
     {
         return $this->url;
     }
@@ -53,7 +53,7 @@ class Video implements VideoInterface
     /**
      * @return Trick
      */
-    public function getTrick(): Trick
+    public function getTrick(): ?Trick
     {
         return $this->trick;
     }
@@ -61,7 +61,7 @@ class Video implements VideoInterface
     /**
      * @param Trick $trick
      */
-    public function setTrick(Trick $trick)
+    public function setTrick(Trick $trick = null)
     {
         $this->trick = $trick;
     }

@@ -17,7 +17,7 @@ class ForgotPasswordUserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('pseudo', TextType::class);
+        $builder->add('userName', TextType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver)

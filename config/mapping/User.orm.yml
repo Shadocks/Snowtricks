@@ -9,12 +9,16 @@ App\Entity\User:
     fields:
         firstName:
             type: string
+            nullable: true
         lastName:
             type: string
-        pseudo:
+            nullable: true
+        userName:
             type: string
+            unique: true
         mail:
             type: string
+            unique: true
         password:
             type: string
         plainPassword:
@@ -29,15 +33,18 @@ App\Entity\User:
         validationDate:
             type: datetime
             name: validation_date
+            nullable: true
         creationDate:
             type: datetime
             name: creation_date
         validationToken:
             type: string
             name: validation_token
+            nullable: true
         resetToken:
             type: string
             name: reset_token
+            nullable: true
     oneToOne:
         picture:
             targetEntity: App\Entity\Picture

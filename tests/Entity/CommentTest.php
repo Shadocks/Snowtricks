@@ -22,7 +22,7 @@ class CommentTest extends TestCase
 
     private $date;
 
-    public function setUp()
+    protected function setUp()
     {
         if ($this->comment == null) {
             $this->comment = new Comment();

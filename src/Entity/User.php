@@ -4,12 +4,13 @@ namespace App\Entity;
 
 
 use App\Entity\Interfaces\UserInterface;
+use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 
 /**
  * Class User
  * @package App\Entity
  */
-class User implements UserInterface
+class User implements UserInterface, AdvancedUserInterface, \Serializable
 {
     /**
      * @var int
@@ -29,7 +30,7 @@ class User implements UserInterface
     /**
      * @var string
      */
-    private $pseudo;
+    private $userName;
 
     /**
      * @var Picture
@@ -97,6 +98,15 @@ class User implements UserInterface
     private $comment;
 
     /**
+     * User constructor.
+     */
+    public function __construct()
+    {
+        $this->creationDate = new \DateTime();
+        $this->validationDate = new \DateTime();
+    }
+
+    /**
      * @return int
      */
     public function getId(): ?int
@@ -107,7 +117,7 @@ class User implements UserInterface
     /**
      * @return string
      */
-    public function getFirstName(): string
+    public function getFirstName(): ?string
     {
         return $this->firstName;
     }
@@ -123,7 +133,7 @@ class User implements UserInterface
     /**
      * @return string
      */
-    public function getLastName(): string
+    public function getLastName(): ?string
     {
         return $this->lastName;
     }
@@ -139,23 +149,23 @@ class User implements UserInterface
     /**
      * @return string
      */
-    public function getPseudo(): string
+    public function getUserName(): ?string
     {
-        return $this->pseudo;
+        return $this->userName;
     }
 
     /**
-     * @param string $pseudo
+     * @param string $userName
      */
-    public function setPseudo(string $pseudo)
+    public function setUserName(string $userName)
     {
-        $this->pseudo = $pseudo;
+        $this->userName = $userName;
     }
 
     /**
-     * @return Picture
+     * @return Picture|null
      */
-    public function getPicture(): Picture
+    public function getPicture(): ?Picture
     {
         return $this->picture;
     }
@@ -166,12 +176,13 @@ class User implements UserInterface
     public function setPicture(Picture $picture)
     {
         $this->picture = $picture;
+        $picture->setUser($this);
     }
 
     /**
      * @return string
      */
-    public function getMail(): string
+    public function getMail(): ?string
     {
         return $this->mail;
     }
@@ -187,7 +198,7 @@ class User implements UserInterface
     /**
      * @return string
      */
-    public function getPassword(): string
+    public function getPassword(): ?string
     {
         return $this->password;
     }
@@ -203,7 +214,7 @@ class User implements UserInterface
     /**
      * @return string
      */
-    public function getPlainPassword(): string
+    public function getPlainPassword(): ?string
     {
         return $this->plainPassword;
     }
@@ -358,5 +369,61 @@ class User implements UserInterface
     public function setComment(Comment $comment)
     {
         $this->comment = $comment;
+    }
+
+    /**
+     * @return mixed|string
+     * @see \Serializable::serialize()
+     */
+    public function serialize()
+    {
+        return $this->serialize([
+            $this->id,
+            $this->pseudo,
+            $this->password,
+        ]);
+    }
+
+    /**
+     * @param string $serialized
+     * @see \Serializable::unserialize()
+     */
+    public function unserialize($serialized)
+    {
+        list(
+            $this->id,
+            $this->pseudo,
+            $this->password,
+            ) = $this->unserialize($serialized);
+    }
+
+    public function isAccountNonExpired()
+    {
+        // TODO: Implement isAccountNonExpired() method.
+    }
+
+    public function isAccountNonLocked()
+    {
+        // TODO: Implement isAccountNonLocked() method.
+    }
+
+    public function isCredentialsNonExpired()
+    {
+        // TODO: Implement isCredentialsNonExpired() method.
+    }
+
+    public function isEnabled()
+    {
+        // TODO: Implement isEnabled() method.
+    }
+
+    public function getSalt()
+    {
+        return null;
+    }
+
+    public function eraseCredentials()
+    {
+        // TODO: Implement eraseCredentials() method.
     }
 }

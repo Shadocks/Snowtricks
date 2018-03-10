@@ -9,7 +9,8 @@ App\Entity\Picture:
     fields:
         name:
             type: string
-        file:
+            nullable: true
+        url:
             type: string
     oneToOne:
         user:

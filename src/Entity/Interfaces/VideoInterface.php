@@ -19,7 +19,7 @@ interface VideoInterface
     /**
      * @return string
      */
-    public function getUrl(): string;
+    public function getUrl(): ?string;
     /**
      * @param $url
      */
@@ -27,10 +27,10 @@ interface VideoInterface
     /**
      * @return Trick
      */
-    public function getTrick(): Trick;
+    public function getTrick(): ?Trick;
 
     /**
      * @param Trick $trick
      */
-    public function setTrick(Trick $trick);
+    public function setTrick(Trick $trick = null);
 }
