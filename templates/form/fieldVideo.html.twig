@@ -1,8 +1,0 @@
-{% block url_widget %}
-
-    {{ block('form_widget') }}
-    {% if video_id is not null %}
-        <a href="{{ path('video_delete', {'id_video': video_id, 'id_trick': video_trick.id}) }}" class="btn btn-danger btn-xs">Supprimer</a>
-    {% endif %}
-
-{% endblock %}

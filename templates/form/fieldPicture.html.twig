@@ -1,9 +1,0 @@
-{% block file_widget %}
-
-            {{ block('form_widget') }}
-            {% if image_url is not null %}
-                <img src="{{ image_url }}"/>
-                <a href="{{ path('picture_delete', {'id_picture': image_id, 'id_trick': image_trick.id}) }}" class="btn btn-danger btn-xs">Supprimer</a>
-            {% endif %}
-
-{% endblock %}
