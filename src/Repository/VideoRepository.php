@@ -2,17 +2,17 @@
 
 namespace App\Repository;
 
-
 use Doctrine\ORM\EntityRepository;
+use App\Repository\Interfaces\VideoRepositoryInterface;
 
 /**
- * Class VideoRepository
- * @package App\Repository
+ * Class VideoRepository.
  */
-class VideoRepository extends EntityRepository
+class VideoRepository extends EntityRepository implements VideoRepositoryInterface
 {
     /**
      * @param $id
+     *
      * @return array
      */
     public function findOneVideoBy($id)

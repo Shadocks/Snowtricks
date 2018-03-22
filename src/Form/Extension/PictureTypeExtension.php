@@ -2,17 +2,15 @@
 
 namespace App\Form\Extension;
 
-
+use Symfony\Component\Form\FormView;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\FormInterface;
-use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 
 /**
- * Class PictureTypeExtension
- * @package App\Form\Extension
+ * Class PictureTypeExtension.
  */
 class PictureTypeExtension extends AbstractTypeExtension
 {
@@ -29,17 +27,19 @@ class PictureTypeExtension extends AbstractTypeExtension
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefined([
+        $resolver->setDefined(
+            [
             'image_property_url',
             'image_property_id',
-            'image_property_trick'
-        ]);
+            'image_property_trick',
+            ]
+        );
     }
 
     /**
-     * @param FormView $view
+     * @param FormView      $view
      * @param FormInterface $form
-     * @param array $options
+     * @param array         $options
      */
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
@@ -47,7 +47,7 @@ class PictureTypeExtension extends AbstractTypeExtension
             $parentData = $form->getParent()->getData();
 
             $imageUrl = null;
-            if ($parentData !== null) {
+            if (null !== $parentData) {
                 $accessor = PropertyAccess::createPropertyAccessor();
                 $imageUrl = $accessor->getValue($parentData, $options['image_property_url']);
             }
@@ -59,24 +59,12 @@ class PictureTypeExtension extends AbstractTypeExtension
             $parentData = $form->getParent()->getData();
 
             $imageId = null;
-            if ($parentData !== null) {
+            if (null !== $parentData) {
                 $accessor = PropertyAccess::createPropertyAccessor();
                 $imageId = $accessor->getValue($parentData, $options['image_property_id']);
             }
         }
 
         $view->vars['image_id'] = $imageId;
-
-        if (isset($options['image_property_trick'])) {
-            $parentData = $form->getParent()->getData();
-
-            $imageTrick = null;
-            if ($parentData !== null) {
-                $accessor = PropertyAccess::createPropertyAccessor();
-                $imageTrick = $accessor->getValue($parentData, $options['image_property_trick']);
-            }
-        }
-
-        $view->vars['image_trick'] = $imageTrick;
     }
 }

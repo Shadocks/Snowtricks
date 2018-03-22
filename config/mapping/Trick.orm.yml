@@ -9,6 +9,7 @@ App\Entity\Trick:
     fields:
         name:
             type: string
+            unique: true
         category:
             type: string
         description:

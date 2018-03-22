@@ -2,13 +2,11 @@
 
 namespace App\Entity;
 
-
 use App\Entity\Interfaces\PictureInterface;
 use Symfony\Component\HttpFoundation\File\File;
 
 /**
- * Class Picture
- * @package App\Entity
+ * Class Picture.
  */
 class Picture implements PictureInterface
 {
@@ -83,7 +81,7 @@ class Picture implements PictureInterface
     }
 
     /**
-     * @return null|string
+     * @return mixed
      */
     public function getFile()
     {

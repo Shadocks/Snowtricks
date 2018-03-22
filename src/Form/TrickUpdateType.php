@@ -2,39 +2,39 @@
 
 namespace App\Form;
 
-
 use App\Entity\Trick;
-use App\Subscriber\Form\Trick\TrickUpdateFieldPictureSubscriber;
+use App\Subscriber\Form\Trick\TrickUpdateTypeSubscriber;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * Class TrickUpdateType
- * @package App\Form
+ * Class TrickUpdateType.
  */
 class TrickUpdateType extends AbstractType
 {
     /**
-     * @var TrickUpdateFieldPictureSubscriber
+     * @var TrickUpdateTypeSubscriber
      */
-    private $trickUpdateFieldPictureSubscriber;
+    private $trickUpdateTypeSubscriber;
 
     /**
      * TrickUpdateType constructor.
-     * @param TrickUpdateFieldPictureSubscriber $trickUpdateFieldPictureSubscriber
+     *
+     * @param TrickUpdateTypeSubscriber $trickUpdateTypeSubscriber
      */
-    public function __construct(TrickUpdateFieldPictureSubscriber $trickUpdateFieldPictureSubscriber)
-    {
-        $this->trickUpdateFieldPictureSubscriber = $trickUpdateFieldPictureSubscriber;
+    public function __construct(
+        TrickUpdateTypeSubscriber $trickUpdateTypeSubscriber
+    ) {
+        $this->trickUpdateTypeSubscriber = $trickUpdateTypeSubscriber;
     }
 
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -46,15 +46,15 @@ class TrickUpdateType extends AbstractType
                 'entry_type' => PictureType::class,
                 'allow_add' => true,
                 'allow_delete' => true,
-                'by_reference' => false
+                'by_reference' => false,
             ])
             ->add('video', CollectionType::class, [
                 'entry_type' => VideoType::class,
                 'allow_add' => true,
                 'allow_delete' => true,
-                'by_reference' => false
+                'by_reference' => false,
             ])
-            ->addEventSubscriber($this->trickUpdateFieldPictureSubscriber)
+            ->addEventSubscriber($this->trickUpdateTypeSubscriber)
         ;
     }
 

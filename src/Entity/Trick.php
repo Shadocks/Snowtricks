@@ -2,13 +2,11 @@
 
 namespace App\Entity;
 
-
 use App\Entity\Interfaces\TrickInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * Class Trick
- * @package App\Entity
+ * Class Trick.
  */
 class Trick implements TrickInterface
 {

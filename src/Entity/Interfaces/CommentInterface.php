@@ -2,13 +2,11 @@
 
 namespace App\Entity\Interfaces;
 
-
-use App\Entity\Trick;
 use App\Entity\User;
+use App\Entity\Trick;
 
 /**
- * Interface CommentInterface
- * @package App\Entity\Interfaces
+ * Interface CommentInterface.
  */
 interface CommentInterface
 {

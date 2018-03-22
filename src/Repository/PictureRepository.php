@@ -2,20 +2,20 @@
 
 namespace App\Repository;
 
-
 use Doctrine\ORM\EntityRepository;
+use App\Repository\Interfaces\PictureRepositoryInterface;
 
 /**
- * Class PictureRepository
- * @package App\Repository
+ * Class PictureRepository.
  */
-class PictureRepository extends EntityRepository
+class PictureRepository extends EntityRepository implements PictureRepositoryInterface
 {
     /**
-     * @param $id
+     * @param string $id
+     *
      * @return mixed
      */
-    public function findOnePictureBy($id)
+    public function findOnePictureBy(String $id)
     {
         return $this->createQueryBuilder('p')
                     ->where('p.id = :id')

@@ -2,14 +2,12 @@
 
 namespace tests\Entity;
 
-
 use App\Entity\Video;
 use App\Entity\Trick;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class VideoTest
- * @package tests\Entity
+ * Class VideoTest.
  */
 class VideoTest extends TestCase
 {
@@ -19,11 +17,11 @@ class VideoTest extends TestCase
 
     protected function setUp()
     {
-        if ($this->video == null) {
+        if (null == $this->video) {
             $this->video = new Video();
         }
 
-        if ($this->trick == null) {
+        if (null == $this->trick) {
             $this->trick = $this->createMock(Trick::class);
             $this->trick->method('getId')
                 ->willReturn(1);
@@ -36,7 +34,6 @@ class VideoTest extends TestCase
 
         static::assertNull($this->video->getId());
         static::assertEquals('https://www.youtube.com/watch?v=x98O_j9DXMo', $this->video->getUrl());
-
     }
 
     public function testTrickRelation()

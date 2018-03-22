@@ -2,17 +2,14 @@
 
 namespace App\Entity\Interfaces;
 
-
-use App\Entity\Picture;
-use App\Entity\Video;
-use App\Entity\Comment;
 use App\Entity\User;
+use App\Entity\Video;
+use App\Entity\Picture;
+use App\Entity\Comment;
 use Doctrine\Common\Collections\ArrayCollection;
-use Symfony\Component\HttpFoundation\File\File;
 
 /**
- * Interface TrickInterface
- * @package App\Entity\Interfaces
+ * Interface TrickInterface.
  */
 interface TrickInterface
 {
@@ -88,6 +85,7 @@ interface TrickInterface
 
     /**
      * @param Picture $picture
+     *
      * @return mixed
      */
     public function removePicture(Picture $picture);

@@ -1,14 +1,15 @@
 {% extends 'base.html.twig' %}
+
 {% block body %}
 
     <div class="container">
         <h3 class="title-login">Se connecter</h3>
         <div class="container form">
         {% if error %}
-            <div>{{ error.message.key|trans(error.messageData, 'security') }}</div>
+            <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
             <form action="{{ path('login') }}" method="post" class="form-horizontal">
-
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                 <div class="form-group">
                     <div class="col-xs-12">
                     <label for="username" class="col-sm-2 control-label">Username</label>
@@ -32,7 +33,7 @@
                 </div>
             </form>
             <div class="link-already-account">
-                <a href="/forgot/password">Mot de passe oublié ?</a>
+                <a href="{{ path('forgot_password') }}">Mot de passe oublié ?</a>
             </div>
         </div>
     </div>

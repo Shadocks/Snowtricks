@@ -4,10 +4,11 @@
         <h2>Ajouter un trick</h2>
         <div class="container form">
             {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
-
+            {{ form_errors(form) }}
                 <div class="form-group">
                     <div class="col-xs-12">
                         {{ form_label(form.name, 'Nom', {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                            {{ form_errors(form.name) }}
                             <div class="col-sm-10">
                                 {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
                             </div>
@@ -17,6 +18,7 @@
                 <div class="form-group">
                     <div class="col-xs-12">
                         {{ form_label(form.category, 'Catégorie', {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                            {{ form_errors(form.category) }}
                             <div class="col-sm-10">
                                 {{ form_widget(form.category, {'attr': {'class': 'form-control'}}) }}
                             </div>
@@ -26,6 +28,7 @@
                 <div class="form-group">
                     <div class="col-xs-12">
                         {{ form_label(form.description, 'Description', {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                            {{ form_errors(form.description) }}
                             <div class="col-sm-10">
                                 {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
                             </div>

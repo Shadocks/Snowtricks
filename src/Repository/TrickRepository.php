@@ -2,14 +2,14 @@
 
 namespace App\Repository;
 
-
 use Doctrine\ORM\EntityRepository;
+use App\Repository\Interfaces\TrickRepositoryInterface;
 
 /**
- * Class TrickRepository
- * @package App\Repository\TrickRepository
+ * Class TrickRepository.
  */
-class TrickRepository extends EntityRepository
+class TrickRepository extends EntityRepository implements TrickRepositoryInterface
+
 {
     /**
      * @return array
@@ -23,6 +23,7 @@ class TrickRepository extends EntityRepository
 
     /**
      * @param $id
+     *
      * @return array
      */
     public function findOneTrickBy($id)
@@ -36,6 +37,7 @@ class TrickRepository extends EntityRepository
 
     /**
      * @param $id
+     *
      * @return mixed
      */
     public function findOneByIdJoinToCommentsPicturesVideos($id)
@@ -52,16 +54,17 @@ class TrickRepository extends EntityRepository
 
     /**
      * @param $id
+     *
      * @return mixed
      */
     public function findOneByIdJoinToPicturesVideos($id)
     {
         return $this->createQueryBuilder('t')
-            ->where('t.id = :id')
-            ->setParameter('id', $id)
-            ->leftJoin('t.picture', 'p')
-            ->leftJoin('t.video', 'v')
-            ->getQuery()
-            ->getOneOrNullResult();
+                    ->where('t.id = :id')
+                    ->setParameter('id', $id)
+                    ->leftJoin('t.picture', 'p')
+                    ->leftJoin('t.video', 'v')
+                    ->getQuery()
+                    ->getOneOrNullResult();
     }
 }

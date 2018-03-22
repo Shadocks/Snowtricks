@@ -2,17 +2,15 @@
 
 namespace App\Form\Extension;
 
-
+use Symfony\Component\Form\FormView;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
-use Symfony\Component\Form\FormInterface;
-use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 
 /**
- * Class VideoTypeExtension
- * @package App\Form\Extension
+ * Class VideoTypeExtension.
  */
 class VideoTypeExtension extends AbstractTypeExtension
 {
@@ -29,13 +27,18 @@ class VideoTypeExtension extends AbstractTypeExtension
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefined(['video_property_id', 'video_property_trick']);
+        $resolver->setDefined(
+            [
+                'video_property_id',
+                'video_property_trick',
+            ]
+        );
     }
 
     /**
-     * @param FormView $view
+     * @param FormView      $view
      * @param FormInterface $form
-     * @param array $options
+     * @param array         $options
      */
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
@@ -43,7 +46,7 @@ class VideoTypeExtension extends AbstractTypeExtension
             $parentData = $form->getParent()->getData();
 
             $videoId = null;
-            if ($parentData !== null) {
+            if (null !== $parentData) {
                 $accessor = PropertyAccess::createPropertyAccessor();
                 $videoId = $accessor->getValue($parentData, $options['video_property_id']);
             }
@@ -55,7 +58,7 @@ class VideoTypeExtension extends AbstractTypeExtension
             $parentData = $form->getParent()->getData();
 
             $videoTrickId = null;
-            if ($parentData !== null) {
+            if (null !== $parentData) {
                 $accessor = PropertyAccess::createPropertyAccessor();
                 $videoTrickId = $accessor->getValue($parentData, $options['video_property_trick']);
             }

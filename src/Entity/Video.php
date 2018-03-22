@@ -2,12 +2,10 @@
 
 namespace App\Entity;
 
-
 use App\Entity\Interfaces\VideoInterface;
 
 /**
- * Class Video
- * @package App\Entity
+ * Class Video.
  */
 class Video implements VideoInterface
 {

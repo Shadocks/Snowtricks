@@ -2,36 +2,36 @@
 
 namespace App\Events\User;
 
-
-use App\Entity\User;
+use App\Entity\Interfaces\UserInterface;
+use App\Events\User\Interfaces\UserEventInterface;
 use Symfony\Component\EventDispatcher\Event;
 
 /**
- * Class RegistrationUserEvent
- * @package App\Events\User
+ * Class RegistrationUserEvent.
  */
-class RegistrationUserEvent extends Event
+class RegistrationUserEvent extends Event implements UserEventInterface
 {
     const NAME = 'registration.user';
 
     /**
-     * @var User
+     * @var UserInterface
      */
     private $user;
 
     /**
      * RegistrationUserEvent constructor.
-     * @param User $user
+     *
+     * @param UserInterface $user
      */
-    public function __construct(User $user)
+    public function __construct(UserInterface $user)
     {
         $this->user = $user;
     }
 
     /**
-     * @return User
+     * @return UserInterface
      */
-    public function getUser(): User
+    public function getUser(): UserInterface
     {
         return $this->user;
     }

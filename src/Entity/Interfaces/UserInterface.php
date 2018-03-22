@@ -2,14 +2,12 @@
 
 namespace App\Entity\Interfaces;
 
-
-use App\Entity\Comment;
 use App\Entity\Trick;
+use App\Entity\Comment;
 use App\Entity\Picture;
 
 /**
- * Interface UserInterface
- * @package App\Entity\Interfaces
+ * Interface UserInterface.
  */
 interface UserInterface
 {
@@ -21,32 +19,12 @@ interface UserInterface
     /**
      * @return string
      */
-    public function getFirstName(): ?string;
+    public function getUsername(): ?string;
 
     /**
-     * @param string $firstName
+     * @param string $username
      */
-    public function setFirstName(string $firstName);
-
-    /**
-     * @return string
-     */
-    public function getLastName(): ?string;
-
-    /**
-     * @param string $lastName
-     */
-    public function setLastName(string $lastName);
-
-    /**
-     * @return string
-     */
-    public function getUserName(): ?string;
-
-    /**
-     * @param string $userName
-     */
-    public function setUserName(string $userName);
+    public function setUsername(string $username);
 
     /**
      * @return Picture|null
@@ -106,7 +84,7 @@ interface UserInterface
     /**
      * @param bool $active
      */
-    public function setActive(bool$active);
+    public function setActive(bool $active);
 
     /**
      * @return bool
@@ -147,6 +125,7 @@ interface UserInterface
      * @param string $validationToken
      */
     public function setValidationToken(string $validationToken);
+
     /**
      * @return string
      */
