@@ -3,7 +3,7 @@
 namespace App\Action\Security;
 
 use App\Entity\User;
-use App\Form\ForgotPasswordUserType;
+use App\Form\Type\ForgotPasswordUserType;
 use App\Events\User\ForgotPasswordUserEvent;
 use App\Action\Interfaces\Security\ForgotPasswordActionInterface;
 use Doctrine\ORM\EntityManagerInterface;

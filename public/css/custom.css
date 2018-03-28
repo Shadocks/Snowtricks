@@ -1,9 +1,73 @@
-body {
-    margin-top: 100px
+/**************************/
+/******* HERO IMAGE *******/
+/**************************/
+
+header, body, html {
+    width:  100%;
+    height: 100%;
 }
 
-.container-form-comment,
-.container-comment-file,
+header {
+    background: url(/img/home-page.jpg) no-repeat center center;
+    background-size: cover;
+}
+
+.wrapper {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.content {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+h1{
+    font-size: 65px;
+}
+
+.subtitle {
+    font-size: 23px;
+}
+
+/************************/
+/******* COMMUN *********/
+/************************/
+
+/* FOOTER */
+
+.footer {
+    background-color: #222;
+    height: 100px;
+    color: white;
+    padding-top: 15px;
+    margin-top: 20px;
+}
+
+/* BODY */
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: lightgray;
+}
+
+/* PAGES */
+
+.addTrick,
+.detailTrickPage,
+.loginPage,
+.updateTrickPage,
+.registrationPage,
+.forgotPage,
+.resetPasswordPage {
+    flex: 1;
+}
+
+/* FORMS */
+
 .title-registration,
 .link-already-account,
 .title-login,
@@ -13,7 +77,148 @@ body {
 .btn-reset,
 .btn-login,
 .btn-add-trick,
-.btn-update-trick {
+.btn-update-trick,
+.btn-add-comment {
     text-align: center;
 }
 
+/*********************************************/
+/************** HOME PAGE TRICK **************/
+/*********************************************/
+
+.imgTrick {
+    width: 250px;
+    height: 150px;
+    object-fit: cover;
+    box-shadow: 2px 2px 20px black;
+}
+
+.titleTrick {
+    text-align: center;
+    padding-top: 5px;
+}
+
+.trick {
+    display: none;
+    text-align: center;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+.btnDetail {
+    background-color: #222;
+    border-color: #222;
+    color: white;
+}
+
+/***********************************************/
+/************** PAGE DETAIL TRICK **************/
+/***********************************************/
+
+/* MAIN IMAGE */
+
+.imageTrickDetailUne {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+figure {
+    position: relative;
+}
+
+figcaption {
+    position: absolute;
+    width: 100%;
+    top: 45%;
+    text-align: center;
+    font-size: 50px;
+    color: #337ab7;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-shadow: 2px 2px 20px #222;
+}
+
+.deleteDetailPage {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
+.editDetailPage {
+    position: absolute;
+    top: 5px;
+    right: 55px;
+}
+
+/* CAROUSEL */
+
+#myCarouselVideo {
+
+}
+
+.listImagesTrick,
+.listVideosTrick,
+.oneVideoTrick {
+    padding-top: 50px;
+}
+
+iframe {
+    width: 100%;
+    height: 300px;
+}
+
+/* LOAD MORE MEDIAS */
+
+.mediaLoadMore {
+    display: block;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    text-align: center;
+}
+
+/* DESCRIPTION */
+
+.descriptionTrick {
+    padding-top: 50px;
+}
+
+/* INFO TRICK*/
+
+.infoTrick {
+    text-align: center;
+    padding-top: 50px;
+    font-size: 20px;
+}
+
+.label-info {
+    background-color: #222;
+}
+
+/* COMMENT */
+
+.comment {
+    display: none;
+    border: solid 1px #222;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.wrap-button {
+    text-align: center;
+    padding-top: 25px;
+}
+
+/*****************************************/
+/************** PAGE UPDATE **************/
+/*****************************************/
+
+.updateImage {
+    max-width: 200px;
+    padding-top: 15px;
+}
+
+#add_picture,
+#add_video {
+    margin-top: 15px;
+}

@@ -130,7 +130,7 @@ class Trick implements TrickInterface
     /**
      * @return \Datetime
      */
-    public function getCreationDate(): \DateTime
+    public function getCreationDate(): \Datetime
     {
         return $this->creationDate;
     }
@@ -146,7 +146,7 @@ class Trick implements TrickInterface
     /**
      * @return \Datetime
      */
-    public function getModificationDate(): \DateTime
+    public function getModificationDate():? \DateTime
     {
         return $this->modificationDate;
     }

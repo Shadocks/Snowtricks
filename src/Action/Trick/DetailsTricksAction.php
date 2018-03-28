@@ -4,7 +4,8 @@ namespace App\Action\Trick;
 
 use App\Entity\Trick;
 use App\Entity\Comment;
-use App\Form\CommentType;
+use App\Entity\User;
+use App\Form\Type\CommentType;
 use App\Handler\Interfaces\CommentTypeHandlerInterface;
 use App\Action\Interfaces\Trick\DetailsTricksActionInterface;
 use Doctrine\ORM\EntityManagerInterface;
@@ -86,10 +87,10 @@ class DetailsTricksAction implements DetailsTricksActionInterface
      *     requirements={"id"="\d+"}
      * )
      *
-     * @param string  $id
+     * @param string $id
      * @param Request $request
      *
-     * @return mixed
+     * @return RedirectResponse|Response
      */
     public function __invoke(string $id, Request $request)
     {
@@ -101,7 +102,7 @@ class DetailsTricksAction implements DetailsTricksActionInterface
         $comment = new Comment();
         $comment->setTrick($trick);
 
-        if ($user) {
+        if ($user instanceof User) {
             $comment->setUser($user);
         }
 

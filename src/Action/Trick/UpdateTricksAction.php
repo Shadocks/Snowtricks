@@ -3,7 +3,7 @@
 namespace App\Action\Trick;
 
 use App\Entity\Trick;
-use App\Form\TrickUpdateType;
+use App\Form\Type\TrickUpdateType;
 use App\Handler\Interfaces\UpdateTrickTypeHandlerInterface;
 use App\Action\Interfaces\Trick\UpdateTricksActionInterface;
 use Doctrine\ORM\EntityManagerInterface;

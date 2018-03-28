@@ -1,18 +1,17 @@
 <?php
 
-namespace App\Form;
+namespace App\Form\Type;
 
-use App\Entity\User;
+use App\Entity\Video;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * Class ResetPasswordUser.
+ * Class VideoType.
  */
-class ResetPasswordUserType extends AbstractType
+class VideoType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -20,10 +19,10 @@ class ResetPasswordUserType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('mail', EmailType::class)
-            ->add('plainPassword', PasswordType::class)
-        ;
+        $builder->add('url', UrlType::class, [
+            'video_property_id' => 'id',
+            'video_property_trick' => 'trick',
+        ]);
     }
 
     /**
@@ -32,8 +31,7 @@ class ResetPasswordUserType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => User::class,
-            'validation_groups' => ['offRegistration'],
+            'data_class' => Video::class,
         ]);
     }
 }

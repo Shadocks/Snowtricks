@@ -3,7 +3,7 @@
 namespace App\Action\Trick;
 
 use App\Entity\Trick;
-use App\Form\TrickAddType;
+use App\Form\Type\TrickAddType;
 use App\Handler\Interfaces\AddTrickTypeHandlerInterface;
 use App\Action\Interfaces\Trick\AddTricksActionInterface;
 use Symfony\Component\HttpFoundation\Request;
