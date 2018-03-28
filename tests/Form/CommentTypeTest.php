@@ -2,14 +2,12 @@
 
 namespace tests\Form;
 
-
 use App\Entity\Comment;
 use App\Form\CommentType;
 use Symfony\Component\Form\Test\TypeTestCase;
 
 /**
- * Class CommentTypeTest
- * @package tests\Form
+ * Class CommentTypeTest.
  */
 class CommentTypeTest extends TypeTestCase
 {

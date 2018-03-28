@@ -2,11 +2,13 @@
 
 namespace tests\Form;
 
-
 use App\Entity\User;
 use App\Form\ResetPasswordUserType;
 use Symfony\Component\Form\Test\TypeTestCase;
 
+/**
+ * Class ResetPasswordUserTypeTest.
+ */
 class ResetPasswordUserTypeTest extends TypeTestCase
 {
     public function testDataPass()

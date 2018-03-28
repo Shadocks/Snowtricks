@@ -26,7 +26,7 @@
         {% for message in app.flashes('success') %}
             <div class="flash-success">
                 <div class="alert alert-success alert-dismissible fade in">
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;></a>
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                     <strong>{{ message }}</strong>
                 </div>
             </div>
@@ -34,6 +34,7 @@
 
         <!--------------------------- ACTION / TRICK --------------------------->
 
+        {% if is_granted('ROLE_USER') %}
         <a type="button" class="btn btn-default" aria-label="Pencil" href="{{ path('trick_update', {'id': trick.id }) }}">
             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
         </a>
@@ -41,6 +42,7 @@
         <button type="button" class="btn btn-default" aria-label="Trash" data-toggle="modal" data-target="#removeTrickModal">
             <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
         </button>
+        {% endif %}
 
         <!--------------------------- MODAL / DELETE --------------------------->
 
@@ -64,6 +66,7 @@
 
         <!--------------------------- FORM COMMENT --------------------------->
 
+        {% if is_granted('ROLE_USER') %}
         <div class="container-form-comment">
             <h3>Laisser un commentaire</h3>
                 {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
@@ -78,6 +81,7 @@
                     <button type="submit" class="btn btn-primary">Poster</button>
                 {{ form_end(form) }}
         </div>
+        {% endif %}
 
         <!--------------------------- COMMENT FILE --------------------------->
 
@@ -85,6 +89,8 @@
             <h3>Commentaires</h3>
 
             {% for comment in trick.comment %}
+                <p><strong>{{ comment.user.username }}</strong> a posté :</p>
+                <div><img src="{{ comment.user.picture.url }}"></div>
                 <p>{{ comment.content }}</p>
                 <p>{{ comment.creationDate|date }}</p>
             {% endfor %}

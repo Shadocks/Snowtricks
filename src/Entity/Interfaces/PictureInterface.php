@@ -2,15 +2,12 @@
 
 namespace App\Entity\Interfaces;
 
-
-use App\Entity\Trick;
 use App\Entity\User;
+use App\Entity\Trick;
 use Symfony\Component\HttpFoundation\File\File;
 
-
 /**
- * Interface PictureInterface
- * @package App\Entity\Interfaces
+ * Interface PictureInterface.
  */
 interface PictureInterface
 {
@@ -40,7 +37,7 @@ interface PictureInterface
     public function setUrl(string $url);
 
     /**
-     * @return string
+     * @return mixed
      */
     public function getFile();
 
@@ -68,5 +65,4 @@ interface PictureInterface
      * @param Trick $trick
      */
     public function setTrick(Trick $trick = null);
-
 }

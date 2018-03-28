@@ -2,14 +2,12 @@
 
 namespace tests\Form;
 
-
 use App\Entity\User;
 use App\Form\ForgotPasswordUserType;
 use Symfony\Component\Form\Test\TypeTestCase;
 
 /**
- * Class ForgotPasswordUserTypeTest
- * @package tests\Form
+ * Class ForgotPasswordUserTypeTest.
  */
 class ForgotPasswordUserTypeTest extends TypeTestCase
 {

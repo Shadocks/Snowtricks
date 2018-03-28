@@ -2,7 +2,6 @@
 
 namespace tests\Entity;
 
-
 use App\Entity\Comment;
 use App\Entity\Picture;
 use App\Entity\Trick;
@@ -12,8 +11,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class TrickTest
- * @package tests\Entity
+ * Class TrickTest.
  */
 class TrickTest extends TestCase
 {
@@ -33,39 +31,39 @@ class TrickTest extends TestCase
 
     protected function setUp()
     {
-        if ($this->trick === null) {
+        if (null === $this->trick) {
             $this->trick = new Trick();
         }
 
-        if ($this->picture === null) {
+        if (null === $this->picture) {
             $this->picture = $this->createMock(Picture::class);
             $this->picture->method('getId')
                 ->willReturn(0);
         }
 
-        if ($this->video === null) {
+        if (null === $this->video) {
             $this->video = $this->createMock(Video::class);
             $this->video->method('getId')
                 ->willReturn(1);
         }
 
-        if ($this->comment === null) {
+        if (null === $this->comment) {
             $this->comment = $this->createMock(Comment::class);
             $this->comment->method('getId')
                 ->willReturn(2);
         }
 
-        if ($this->user === null) {
+        if (null === $this->user) {
             $this->user = $this->createMock(User::class);
             $this->user->method('getId')
                 ->willReturn(3);
         }
 
-        if ($this->date === null) {
+        if (null === $this->date) {
             $this->date = new \DateTime();
         }
 
-        if ($this->arrayCollection === null) {
+        if (null === $this->arrayCollection) {
             $this->arrayCollection = $this->createMock(ArrayCollection::class);
         }
     }

@@ -2,7 +2,6 @@
 
 namespace tests\Form;
 
-
 use App\Entity\Picture;
 use App\Entity\User;
 use App\Form\Extension\PictureTypeExtension;
@@ -12,8 +11,7 @@ use Symfony\Component\Form\PreloadedExtension;
 use Symfony\Component\Form\Test\TypeTestCase;
 
 /**
- * Class ForgotPasswordUserTypeTest
- * @package tests\Form
+ * Class ForgotPasswordUserTypeTest.
  */
 class RegistrationUserTypeTest extends TypeTestCase
 {
@@ -21,8 +19,8 @@ class RegistrationUserTypeTest extends TypeTestCase
 
     public function setUp()
     {
-        if ($this->picture === null) {
-            $this->picture = $this->createMock(Picture::class);;
+        if (null === $this->picture) {
+            $this->picture = $this->createMock(Picture::class);
         }
 
         parent::setUp();
@@ -34,7 +32,7 @@ class RegistrationUserTypeTest extends TypeTestCase
         $serPictureSubscriber = new UserPictureSubscriber($this->picture, $pictureUserDefault);
         $registrationUserType = new RegistrationUserType($serPictureSubscriber);
 
-        return [new PreloadedExtension(array($registrationUserType), array())];
+        return [new PreloadedExtension([$registrationUserType], [])];
     }
 
     public function getTypeExtensions()

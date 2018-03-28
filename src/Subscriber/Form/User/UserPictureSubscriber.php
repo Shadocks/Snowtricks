@@ -2,17 +2,16 @@
 
 namespace App\Subscriber\Form\User;
 
-
 use App\Entity\Picture;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use App\Subscriber\Form\User\Interfaces\UserPictureSubscriberInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
- * Class AddDefaultPictureListener
- * @package App\Form\EventListener\User
+ * Class AddDefaultPictureListener.
  */
-class UserPictureSubscriber implements EventSubscriberInterface
+class UserPictureSubscriber implements EventSubscriberInterface, UserPictureSubscriberInterface
 {
     /**
      * @var Picture
@@ -26,11 +25,14 @@ class UserPictureSubscriber implements EventSubscriberInterface
 
     /**
      * UserPictureSubscriber constructor.
+     *
      * @param Picture $picture
-     * @param $pictureUserDefault
+     * @param string  $pictureUserDefault
      */
-    public function __construct(Picture $picture, $pictureUserDefault)
-    {
+    public function __construct(
+        Picture $picture,
+        string $pictureUserDefault
+    ) {
         $this->picture = $picture;
         $this->pictureUserDefault = $pictureUserDefault;
     }
@@ -41,7 +43,7 @@ class UserPictureSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            FormEvents::PRE_SET_DATA => 'onPreSetData'
+            FormEvents::PRE_SET_DATA => 'onPreSetData',
         ];
     }
 

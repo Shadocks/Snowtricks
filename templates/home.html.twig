@@ -5,7 +5,17 @@
             {% for message in app.flashes('success') %}
                 <div class="flash-success">
                     <div class="alert alert-success alert-dismissible fade in">
-                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;></a>
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>{{ message }}</strong>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div>
+            {% for message in app.flashes('failure') %}
+                <div class="flash-failure">
+                    <div class="alert alert-warning alert-dismissible fade in">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                         <strong>{{ message }}</strong>
                     </div>
                 </div>
@@ -13,15 +23,16 @@
         </div>
         <div>
             {% for trick in tricks %}
-                <!-- Image du trick -->
+
                 <h3><a href="{{ path('trick_detail', {'id': trick.id}) }}">{{ trick.name }}</a></h3>
                 <p>{{ trick.category }}</p>
                 <p>{{ trick.description }}</p>
                 <p>{{ trick.creationDate|date }}</p>
 
-                <!-- Modifier et supprimer pour les membres -->
+                {% if is_granted('ROLE_USER') %}
                 <a href="{{ path('trick_update', {'id': trick.id}) }}">Modifier</a>
                 <a href="{{ path('trick_delete', {'id': trick.id}) }}">Supprimer</a>
+                {% endif %}
             {% endfor %}
         </div>
     </div>

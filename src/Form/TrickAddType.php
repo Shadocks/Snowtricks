@@ -2,39 +2,38 @@
 
 namespace App\Form;
 
-
 use App\Entity\Trick;
-use App\Subscriber\Form\Trick\TrickAddFieldPictureSubscriber;
+use App\Subscriber\Form\Trick\TrickAddTypeSubscriber;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * Class TrickType
- * @package App\Form
+ * Class TrickType.
  */
 class TrickAddType extends AbstractType
 {
     /**
-     * @var TrickAddFieldPictureSubscriber
+     * @var TrickAddTypeSubscriber
      */
-    private $trickAddFieldPictureSubscriber;
+    private $trickAddTypeSubscriber;
 
     /**
      * TrickAddType constructor.
-     * @param TrickAddFieldPictureSubscriber $trickAddFieldPictureSubscriber
+     *
+     * @param TrickAddTypeSubscriber $trickAddTypeSubscriber
      */
-    public function __construct(TrickAddFieldPictureSubscriber $trickAddFieldPictureSubscriber)
+    public function __construct(TrickAddTypeSubscriber $trickAddTypeSubscriber)
     {
-        $this->trickAddFieldPictureSubscriber = $trickAddFieldPictureSubscriber;
+        $this->trickAddTypeSubscriber = $trickAddTypeSubscriber;
     }
 
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -46,15 +45,15 @@ class TrickAddType extends AbstractType
                 'entry_type' => PictureType::class,
                 'allow_add' => true,
                 'allow_delete' => true,
-                'by_reference' => false
+                'by_reference' => false,
             ])
             ->add('video', CollectionType::class, [
                 'entry_type' => VideoType::class,
                 'allow_add' => true,
                 'allow_delete' => true,
-                'by_reference' => false
+                'by_reference' => false,
             ])
-            ->addEventSubscriber($this->trickAddFieldPictureSubscriber)
+            ->addEventSubscriber($this->trickAddTypeSubscriber)
         ;
     }
 

@@ -2,14 +2,12 @@
 
 namespace tests\Events\User;
 
-
 use App\Entity\User;
 use App\Events\User\RegistrationUserEvent;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class RegistrationUserEventTest
- * @package tests\Events\User
+ * Class RegistrationUserEventTest.
  */
 class RegistrationUserEventTest extends TestCase
 {
@@ -17,7 +15,7 @@ class RegistrationUserEventTest extends TestCase
 
     public function setUp()
     {
-        if ($this->user === null) {
+        if (null === $this->user) {
             $this->user = $this->createMock(User::class);
         }
     }

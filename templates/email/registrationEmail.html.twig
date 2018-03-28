@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <section>
+            <p>Bonjour {{ user.username }},</p>
+            <p>Nous vous remercions de vous être inscrit sur snowtricks.</p>
+            <p>Pour activer votre compte, cliquez sur le lien ci-dessous.</p>
+            <a href="{{ url('validation', {'token': user.validationToken}) }}">Cliquez ici pour activer votre compte.</a>
+            <p>A bientôt sur snowtricks</p>
+        </section>
+    </body>
+</html>

@@ -2,15 +2,13 @@
 
 namespace tests\Entity;
 
-
 use App\Entity\Comment;
 use App\Entity\Trick;
 use App\Entity\User;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class CommentTest
- * @package tests\Entity
+ * Class CommentTest.
  */
 class CommentTest extends TestCase
 {
@@ -24,23 +22,23 @@ class CommentTest extends TestCase
 
     protected function setUp()
     {
-        if ($this->comment == null) {
+        if (null == $this->comment) {
             $this->comment = new Comment();
         }
 
-        if ($this->trick == null) {
+        if (null == $this->trick) {
             $this->trick = $this->createMock(Trick::class);
             $this->trick->method('getId')
                 ->willReturn(0);
         }
 
-        if ($this->user == null) {
+        if (null == $this->user) {
             $this->user = $this->createMock(User::class);
             $this->user->method('getId')
                 ->willReturn(1);
         }
 
-        if ($this->date == null) {
+        if (null == $this->date) {
             $this->date = new \DateTime();
         }
     }

@@ -2,12 +2,10 @@
 
 namespace App\Entity;
 
-
 use App\Entity\Interfaces\CommentInterface;
 
 /**
- * Class Comment
- * @package App\Entity
+ * Class Comment.
  */
 class Comment implements CommentInterface
 {

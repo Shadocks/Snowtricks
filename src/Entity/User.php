@@ -2,13 +2,11 @@
 
 namespace App\Entity;
 
-
 use App\Entity\Interfaces\UserInterface;
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 
 /**
- * Class User
- * @package App\Entity
+ * Class User.
  */
 class User implements UserInterface, AdvancedUserInterface, \Serializable
 {
@@ -20,17 +18,7 @@ class User implements UserInterface, AdvancedUserInterface, \Serializable
     /**
      * @var string
      */
-    private $firstName;
-
-    /**
-     * @var string
-     */
-    private $lastName;
-
-    /**
-     * @var string
-     */
-    private $userName;
+    private $username;
 
     /**
      * @var Picture
@@ -117,49 +105,17 @@ class User implements UserInterface, AdvancedUserInterface, \Serializable
     /**
      * @return string
      */
-    public function getFirstName(): ?string
+    public function getUsername(): ?string
     {
-        return $this->firstName;
+        return $this->username;
     }
 
     /**
-     * @param string $firstName
+     * @param string $username
      */
-    public function setFirstName(string $firstName)
+    public function setUsername(string $username)
     {
-        $this->firstName = $firstName;
-    }
-
-    /**
-     * @return string
-     */
-    public function getLastName(): ?string
-    {
-        return $this->lastName;
-    }
-
-    /**
-     * @param string $lastName
-     */
-    public function setLastName(string $lastName)
-    {
-        $this->lastName = $lastName;
-    }
-
-    /**
-     * @return string
-     */
-    public function getUserName(): ?string
-    {
-        return $this->userName;
-    }
-
-    /**
-     * @param string $userName
-     */
-    public function setUserName(string $userName)
-    {
-        $this->userName = $userName;
+        $this->username = $username;
     }
 
     /**
@@ -373,48 +329,64 @@ class User implements UserInterface, AdvancedUserInterface, \Serializable
 
     /**
      * @return mixed|string
+     *
      * @see \Serializable::serialize()
      */
     public function serialize()
     {
-        return $this->serialize([
+        return serialize([
             $this->id,
-            $this->pseudo,
+            $this->username,
             $this->password,
+            $this->active,
         ]);
     }
 
     /**
      * @param string $serialized
+     *
      * @see \Serializable::unserialize()
      */
     public function unserialize($serialized)
     {
         list(
             $this->id,
-            $this->pseudo,
+            $this->username,
             $this->password,
-            ) = $this->unserialize($serialized);
+            $this->active
+            ) = unserialize($serialized);
     }
 
+    /**
+     * @return bool
+     */
     public function isAccountNonExpired()
     {
-        // TODO: Implement isAccountNonExpired() method.
+        return true;
     }
 
+    /**
+     * @return bool
+     */
     public function isAccountNonLocked()
     {
-        // TODO: Implement isAccountNonLocked() method.
+        return true;
     }
 
+    /**
+     * @return bool
+     */
     public function isCredentialsNonExpired()
     {
-        // TODO: Implement isCredentialsNonExpired() method.
+        return true;
     }
 
+    /**
+     * @return bool
+     */
     public function isEnabled()
     {
-        // TODO: Implement isEnabled() method.
+        return $this->active;
     }
 
     public function getSalt()
@@ -424,6 +396,5 @@ class User implements UserInterface, AdvancedUserInterface, \Serializable
 
     public function eraseCredentials()
     {
-        // TODO: Implement eraseCredentials() method.
     }
 }

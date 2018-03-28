@@ -2,44 +2,46 @@
 
 namespace App\Service;
 
-
+use App\Service\Interfaces\PictureUploadInterface;
 use Symfony\Component\HttpFoundation\File\File;
 
 /**
- * Class PictureUpload
- * @package App\Service
+ * Class PictureUpload.
  */
-class PictureUpload
+class PictureUpload implements PictureUploadInterface
 {
     /**
-     * @var
+     * @var string
      */
     private $targetDir;
 
     /**
-     * @var
+     * @var string
      */
     private $pathPictureTrickDefaultTmp;
 
     /**
      * PictureUpload constructor.
-     * @param $targetDir
-     * @param $pathPictureTrickDefaultTmp
+     *
+     * @param string $targetDir
+     * @param string $pathPictureTrickDefaultTmp
      */
-    public function __construct($targetDir, $pathPictureTrickDefaultTmp)
-    {
-         $this->targetDir = $targetDir;
-         $this->pathPictureTrickDefaultTmp = $pathPictureTrickDefaultTmp;
+    public function __construct(
+        string $targetDir,
+        string $pathPictureTrickDefaultTmp
+    ) {
+        $this->targetDir = $targetDir;
+        $this->pathPictureTrickDefaultTmp = $pathPictureTrickDefaultTmp;
     }
 
     /**
      * @param File $file
+     *
      * @return string
      */
     public function upload(File $file)
     {
-        if ($file->getFilename() === 'trick_default.png') {
-
+        if ('trick_default.png' === $file->getFilename()) {
             copy($file->getPathname(), $this->pathPictureTrickDefaultTmp);
             $file = new File($this->pathPictureTrickDefaultTmp);
 

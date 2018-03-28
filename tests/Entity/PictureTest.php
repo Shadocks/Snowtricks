@@ -2,7 +2,6 @@
 
 namespace tests\Entity;
 
-
 use PHPUnit\Framework\TestCase;
 use App\Entity\Picture;
 use App\Entity\User;
@@ -10,8 +9,7 @@ use App\Entity\Trick;
 use Symfony\Component\HttpFoundation\File\File;
 
 /**
- * Class PictureTest
- * @package tests\Entity
+ * Class PictureTest.
  */
 class PictureTest extends TestCase
 {
@@ -25,23 +23,23 @@ class PictureTest extends TestCase
 
     protected function setUp()
     {
-        if ($this->picture === null) {
+        if (null === $this->picture) {
             $this->picture = new Picture();
         }
 
-        if ($this->user === null) {
+        if (null === $this->user) {
             $this->user = $this->createMock(User::class);
             $this->user->method('getId')
                        ->willReturn(1);
         }
 
-        if ($this->trick === null) {
+        if (null === $this->trick) {
             $this->trick = $this->createMock(Trick::class);
             $this->trick->method('getId')
                         ->willReturn(2);
         }
 
-        if ($this->fileType === null) {
+        if (null === $this->fileType) {
             $this->fileType = $this->createMock(File::class);
         }
     }

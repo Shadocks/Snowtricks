@@ -2,7 +2,6 @@
 
 namespace tests\Entity;
 
-
 use App\Entity\Comment;
 use App\Entity\Picture;
 use App\Entity\Trick;
@@ -11,8 +10,7 @@ use PHPUnit\Framework\Constraint\IsType;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class UserTest
- * @package tests\Entity
+ * Class UserTest.
  */
 class UserTest extends TestCase
 {
@@ -26,39 +24,44 @@ class UserTest extends TestCase
 
     private $date;
 
+    private $userAdvancedUserInterface;
+
     protected function setUp()
     {
-        if ($this->user == null) {
+        if (null == $this->user) {
             $this->user = new User();
         }
 
-        if ($this->picture == null) {
+        if (null == $this->picture) {
             $this->picture = $this->createMock(Picture::class);
             $this->picture->method('getId')
                 ->willReturn(0);
         }
 
-        if ($this->trick == null) {
+        if (null == $this->trick) {
             $this->trick = $this->createMock(Trick::class);
             $this->trick->method('getId')
                 ->willReturn(1);
         }
 
-        if ($this->comment == null) {
+        if (null == $this->comment) {
             $this->comment = $this->createMock(Comment::class);
             $this->comment->method('getId')
                 ->willReturn(2);
         }
 
-        if ($this->date == null) {
+        if (null == $this->date) {
             $this->date = new \DateTime();
+        }
+
+        if ($this->userAdvancedUserInterface === null) {
+            $this->userAdvancedUserInterface = $this->createMock(User::class);
+            $this->userAdvancedUserInterface->method('isAccountNonExpired')->willReturn(true);
         }
     }
 
     public function testInstantiation()
     {
-        $this->user->setFirstName('Tony');
-        $this->user->setLastName('Stark');
         $this->user->setUserName('MK1');
         $this->user->setMail('tony.stark@gmail.com');
         $this->user->setPassword('veronica');
@@ -72,8 +75,6 @@ class UserTest extends TestCase
         $this->user->setResetToken('9a1da=9d9ad9d41adx91d361d4167aad6ad4d');
 
         static::assertNull($this->user->getId());
-        static::assertEquals('Tony', $this->user->getFirstName());
-        static::assertEquals('Stark', $this->user->getLastName());
         static::assertEquals('MK1', $this->user->getUserName());
         static::assertEquals('tony.stark@gmail.com', $this->user->getMail());
         static::assertEquals('veronica', $this->user->getPassword());
@@ -112,5 +113,10 @@ class UserTest extends TestCase
 
         static::assertInstanceOf(Comment::class, $this->user->getComment());
         static::assertEquals(2, $this->user->getComment()->getId());
+    }
+
+    public function testIsAccountNonExpired()
+    {
+        static::assertEquals(true, $this->userAdvancedUserInterface->isAccountNonExpired());
     }
 }

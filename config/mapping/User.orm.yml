@@ -7,13 +7,7 @@ App\Entity\User:
             type: integer
             generator: { strategy: AUTO }
     fields:
-        firstName:
-            type: string
-            nullable: true
-        lastName:
-            type: string
-            nullable: true
-        userName:
+        username:
             type: string
             unique: true
         mail:
@@ -21,9 +15,6 @@ App\Entity\User:
             unique: true
         password:
             type: string
-        plainPassword:
-            type: string
-            name: plain_password
         roles:
             type: array
         active:

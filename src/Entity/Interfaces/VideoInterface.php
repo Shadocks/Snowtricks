@@ -2,12 +2,10 @@
 
 namespace App\Entity\Interfaces;
 
-
 use App\Entity\Trick;
 
 /**
- * Interface VideoInterface
- * @package App\Entity\Interfaces
+ * Interface VideoInterface.
  */
 interface VideoInterface
 {
@@ -20,10 +18,12 @@ interface VideoInterface
      * @return string
      */
     public function getUrl(): ?string;
+
     /**
      * @param $url
      */
     public function setUrl(string $url);
+
     /**
      * @return Trick
      */

@@ -2,20 +2,18 @@
 
 namespace tests\Form;
 
-
 use App\Entity\Picture;
 use App\Entity\Trick;
 use App\Entity\Video;
 use App\Form\Extension\PictureTypeExtension;
 use App\Form\Extension\VideoTypeExtension;
 use App\Form\TrickUpdateType;
-use App\Subscriber\Form\Trick\TrickUpdateFieldPictureSubscriber;
+use App\Subscriber\Form\Trick\TrickUpdateTypeSubscriber;
 use Symfony\Component\Form\PreloadedExtension;
 use Symfony\Component\Form\Test\TypeTestCase;
 
 /**
- * Class TrickUpdateTypeTest
- * @package tests\Form
+ * Class TrickUpdateTypeTest.
  */
 class TrickUpdateTypeTest extends TypeTestCase
 {
@@ -25,11 +23,11 @@ class TrickUpdateTypeTest extends TypeTestCase
 
     public function setUp()
     {
-        if ($this->video === null) {
+        if (null === $this->video) {
             $this->video = $this->createMock(Video::class);
         }
 
-        if ($this->picture === null) {
+        if (null === $this->picture) {
             $this->picture = $this->createMock(Picture::class);
         }
 
@@ -38,10 +36,10 @@ class TrickUpdateTypeTest extends TypeTestCase
 
     public function getExtensions()
     {
-        $trickUpdateFieldPictureSubscriber = new TrickUpdateFieldPictureSubscriber();
+        $trickUpdateFieldPictureSubscriber = new TrickUpdateTypeSubscriber();
         $trickAddType = new TrickUpdateType($trickUpdateFieldPictureSubscriber);
 
-        return [new PreloadedExtension(array($trickAddType), array())];
+        return [new PreloadedExtension([$trickAddType], [])];
     }
 
     public function getTypeExtensions()

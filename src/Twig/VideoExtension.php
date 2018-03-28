@@ -2,13 +2,11 @@
 
 namespace App\Twig;
 
-
-use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
+use Twig\Extension\AbstractExtension;
 
 /**
- * Class VideoExtension
- * @package App\Twig
+ * Class VideoExtension.
  */
 class VideoExtension extends AbstractExtension
 {
@@ -19,13 +17,14 @@ class VideoExtension extends AbstractExtension
     {
         return [
             new TwigFilter('urlVideoPlay', [
-                $this, 'playFilter'
-            ])
+                $this, 'playFilter',
+            ]),
         ];
     }
 
     /**
      * @param string $url
+     *
      * @return mixed
      */
     public function playFilter(string $url)
@@ -36,15 +35,18 @@ class VideoExtension extends AbstractExtension
             case 'youtube':
                 $id = substr($url, -11);
                 $headingUrl = 'https://www.youtube.com/embed/';
+
                 return $urlVideoPlay = implode([$headingUrl, $id]);
                 break;
             case 'dailymotion':
                 $id = substr($url, -7);
                 $headingUrl = 'https://www.dailymotion.com/embed/video/';
+
                 return $urlVideoPlay = implode([$headingUrl, $id]);
                 break;
             case 'vimeo':
                 $urlVideoPlay = preg_replace('#(vimeo.com)#', 'player.vimeo.com/video', $url);
+
                 return $urlVideoPlay;
                 break;
             default:
@@ -53,10 +55,11 @@ class VideoExtension extends AbstractExtension
     }
 
     /**
-     * @param $url
-     * @return mixed
+     * @param string $url
+     *
+     * @return bool
      */
-    public function hostSearch($url)
+    public function hostSearch(string $url)
     {
         if (preg_match('#youtube#', $url, $matches)) {
             return $matches;
@@ -69,5 +72,7 @@ class VideoExtension extends AbstractExtension
         if (preg_match('#vimeo#', $url, $matches)) {
             return $matches;
         }
+
+        return false;
     }
 }
