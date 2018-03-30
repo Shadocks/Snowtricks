@@ -47,7 +47,7 @@ class RegistrationUserTypeHandler implements RegistrationUserTypeHandlerInterfac
      * @param EntityManagerInterface       $entityManagerInterface
      * @param EventDispatcherInterface     $eventDispatcher
      * @param UserPasswordEncoderInterface $passwordEncoder
-     * @param PictureUploadInterface                $pictureUpload
+     * @param PictureUploadInterface       $pictureUpload
      * @param string                       $urlStorePath
      */
     public function __construct(
@@ -73,7 +73,6 @@ class RegistrationUserTypeHandler implements RegistrationUserTypeHandlerInterfac
     public function handleRegistration(FormInterface $form, UserInterface $user)
     {
         if ($form->isSubmitted() && $form->isValid()) {
-
             $event = new RegistrationUserEvent($user);
             $this->eventDispatcher->dispatch(RegistrationUserEvent::NAME, $event);
 

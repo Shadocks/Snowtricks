@@ -32,11 +32,6 @@ class UpdateTricksAction implements UpdateTricksActionInterface
     private $formFactory;
 
     /**
-     * @var SessionInterface
-     */
-    private $session;
-
-    /**
      * @var UpdateTrickTypeHandlerInterface
      */
     private $handler;
@@ -56,7 +51,6 @@ class UpdateTricksAction implements UpdateTricksActionInterface
      *
      * @param EntityManagerInterface          $entityManager
      * @param FormFactoryInterface            $formFactory
-     * @param SessionInterface                $session
      * @param UpdateTrickTypeHandlerInterface $handler
      * @param Environment                     $environment
      * @param UrlGeneratorInterface           $urlGenerator
@@ -64,14 +58,12 @@ class UpdateTricksAction implements UpdateTricksActionInterface
     public function __construct(
         EntityManagerInterface $entityManager,
         FormFactoryInterface $formFactory,
-        SessionInterface $session,
         UpdateTrickTypeHandlerInterface $handler,
         Environment $environment,
         UrlGeneratorInterface $urlGenerator
     ) {
         $this->entityManager = $entityManager;
         $this->formFactory = $formFactory;
-        $this->session = $session;
         $this->handler = $handler;
         $this->environment = $environment;
         $this->urlGenerator = $urlGenerator;
