@@ -3,7 +3,7 @@
 namespace App\Action\Trick;
 
 use App\Entity\Trick;
-use App\Form\TrickAddType;
+use App\Form\Type\TrickAddType;
 use App\Handler\Interfaces\AddTrickTypeHandlerInterface;
 use App\Action\Interfaces\Trick\AddTricksActionInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -37,11 +37,6 @@ class AddTricksAction implements AddTricksActionInterface
     private $environment;
 
     /**
-     * @var SessionInterface
-     */
-    private $session;
-
-    /**
      * @var TokenStorageInterface
      */
     private $tokenStorage;
@@ -57,7 +52,6 @@ class AddTricksAction implements AddTricksActionInterface
      * @param FormFactoryInterface         $formFactory
      * @param AddTrickTypeHandlerInterface $handler
      * @param Environment                  $environment
-     * @param SessionInterface             $session
      * @param TokenStorageInterface        $tokenStorage
      * @param UrlGeneratorInterface        $urlGenerator
      */
@@ -65,14 +59,12 @@ class AddTricksAction implements AddTricksActionInterface
         FormFactoryInterface $formFactory,
         AddTrickTypeHandlerInterface $handler,
         Environment $environment,
-        SessionInterface $session,
         TokenStorageInterface $tokenStorage,
         UrlGeneratorInterface $urlGenerator
     ) {
         $this->formFactory = $formFactory;
         $this->handler = $handler;
         $this->environment = $environment;
-        $this->session = $session;
         $this->tokenStorage = $tokenStorage;
         $this->urlGenerator = $urlGenerator;
     }

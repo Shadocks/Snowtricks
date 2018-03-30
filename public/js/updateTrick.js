@@ -70,7 +70,7 @@ $(document).ready(function() {
     /*************************** DEFINE INDEX *********************************/
 
     if (document.querySelectorAll('a[id="video"]').length === 0) {
-        index = $container.find('div#trick_update_picture').length;
+        index = $container.find('div#trick_update_video').length;
     } else {
         index = document.querySelectorAll('a[id="video"]').length;
     }

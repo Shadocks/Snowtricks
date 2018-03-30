@@ -3,7 +3,7 @@
 namespace App\Action\Security;
 
 use App\Entity\User;
-use App\Form\ResetPasswordUserType;
+use App\Form\Type\ResetPasswordUserType;
 use App\Action\Interfaces\Security\ResetPasswordActionInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;

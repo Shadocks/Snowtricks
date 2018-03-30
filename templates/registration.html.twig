@@ -1,10 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
-    <!-------------------------- FORM TO REGISTRATION ------------------------->
-
-    <div class="container">
+    <div class="container registrationPage">
         <h3 class="title-registration">Créer un compte</h3>
             {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
                 {{ form_errors(form) }}
@@ -48,12 +45,9 @@
             <button type="submit" class="btn btn-primary">Créer</button>
         </div>
             {{ form_end(form) }}
+
+        <div class="link-already-account">
+            <a href="{{ path('login') }}">Déjà un compte ?</a>
+        </div>
     </div>
-
-    <!----------------------------- LINK TO LOGIN ----------------------------->
-
-    <div class="link-already-account">
-        <a href="/login">Déjà un compte ?</a>
-    </div>
-
 {% endblock %}

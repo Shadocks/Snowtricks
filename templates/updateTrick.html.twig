@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
+
 {% block body %}
-    <div class="container">
+    <div class="container updateTrickPage">
         <h2>Modifier un trick</h2>
         <div class="container form">
             {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
-
             <div class="form-group">
                 <div class="col-xs-12">
                     {{ form_label(form.name, 'Nom', {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
@@ -13,7 +13,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="form-group">
                 <div class="col-xs-12">
                     {{ form_label(form.category, 'Catégorie', {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
@@ -22,7 +21,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="form-group">
                 <div class="col-xs-12">
                     {{ form_label(form.description, 'Description', {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
@@ -32,9 +30,7 @@
                 </div>
             </div>
 
-            <!-----------------------------  IMAGE  ----------------------------->
-
-            {% form_theme form 'form/fieldPicture.html.twig' %}
+            {% form_theme form 'form/fieldPicture.html.twig' %}.
 
             <div class="form-group">
                 <div class="col-xs-12">
@@ -46,8 +42,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-----------------------------  VIDEO  ----------------------------->
 
             {% form_theme form 'form/fieldVideo.html.twig' %}
 
@@ -61,14 +55,12 @@
                     </div>
                 </div>
             </div>
-
             <div class="btn-update-trick">
                 <button type="submit" class="btn btn-primary">Modifier</button>
             </div>
             {{ form_end(form) }}
         </div>
     </div>
-
 {% endblock %}
 
 {% block javascripts %}

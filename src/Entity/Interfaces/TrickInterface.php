@@ -49,7 +49,7 @@ interface TrickInterface
     public function setDescription(string $description);
 
     /**
-     * @return \Datetime
+     * @return \DateTime
      */
     public function getCreationDate(): \DateTime;
 
@@ -61,7 +61,7 @@ interface TrickInterface
     /**
      * @return \Datetime
      */
-    public function getModificationDate(): \DateTime;
+    public function getModificationDate():? \DateTime;
 
     /**
      * @param \DateTime $modificationDate

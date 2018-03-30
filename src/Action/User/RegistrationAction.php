@@ -3,11 +3,12 @@
 namespace App\Action\User;
 
 use App\Entity\User;
-use App\Form\RegistrationUserType;
+use App\Form\Type\RegistrationUserType;
 use App\Action\Interfaces\User\RegistrationActionInterface;
 use App\Handler\Interfaces\RegistrationUserTypeHandlerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -42,10 +43,10 @@ class RegistrationAction implements RegistrationActionInterface
     /**
      * RegistrationAction constructor.
      *
-     * @param FormFactoryInterface        $formFactory
+     * @param FormFactoryInterface                 $formFactory
      * @param RegistrationUserTypeHandlerInterface $handler
-     * @param Environment                 $environment
-     * @param UrlGeneratorInterface       $urlGenerator
+     * @param Environment                          $environment
+     * @param UrlGeneratorInterface                $urlGenerator
      */
     public function __construct(
         FormFactoryInterface $formFactory,
@@ -66,11 +67,12 @@ class RegistrationAction implements RegistrationActionInterface
      *     methods={"POST", "GET"}
      * )
      *
-     * @param Request $request
+     * @param Request          $request
+     * @param SessionInterface $session
      *
      * @return RedirectResponse|Response
      */
-    public function __invoke(Request $request)
+    public function __invoke(Request $request, SessionInterface $session)
     {
         $user = new User();
 
@@ -78,6 +80,12 @@ class RegistrationAction implements RegistrationActionInterface
                                   ->handleRequest($request);
 
         if ($this->handler->handleRegistration($form, $user)) {
+            $session->getFlashBag()
+                ->add(
+                    'success',
+                    'Un email vient de vous être envoyé. Si vous ne le l\'avez pas reçu d\'ici quelques minutes verifiez dans courrier indésirable ou spam.'
+                );
+
             return new RedirectResponse(
                 $this->urlGenerator->generate('home')
             );

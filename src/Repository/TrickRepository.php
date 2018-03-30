@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityRepository;
 use App\Repository\Interfaces\TrickRepositoryInterface;
 
@@ -17,6 +18,8 @@ class TrickRepository extends EntityRepository implements TrickRepositoryInterfa
     public function findAllTrick()
     {
         return $this->createQueryBuilder('t')
+                    ->leftJoin('t.picture', 'p')
+                    ->orderBy('t.id', 'DESC')
                     ->getQuery()
                     ->getResult();
     }
