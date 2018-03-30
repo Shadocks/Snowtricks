@@ -44,7 +44,7 @@ Virtualhost Apache:
 Complete the `.env.dist` file with your connection data to MySQL and Sengrid.
 Rename `.env.dist` to `.env` or create a copy and rename. To use [Sendgrid](https://sendgrid.com/pricing/) you must create a user account.
 ### Database
-
+At first, import the database into phpMyAdmin. There is a dataset that can be deleted. Then configure the `.env`.
 ```
 DATABASE_URL=mysql://db_user:db_password@127.0.0.1:3306/db_name
 DATABASE_USER=your_username
@@ -54,7 +54,7 @@ DATABASE_PORT=your_port
 DATABASE_NAME=your_database_name
 ```
 ### Sendgrid
-
+Create a Sendgrid account and then configure a APIkey. 
 ```
 SENDGRID_TRANSPORT=transport
 SENDGRID_HOST=host
