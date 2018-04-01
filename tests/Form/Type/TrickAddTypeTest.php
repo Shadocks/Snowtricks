@@ -7,7 +7,7 @@ use App\Entity\Trick;
 use App\Entity\Video;
 use App\Form\Extension\PictureTypeExtension;
 use App\Form\Extension\VideoTypeExtension;
-use App\Form\TrickAddType;
+use App\Form\Type\TrickAddType;
 use App\Subscriber\Form\Trick\TrickAddTypeSubscriber;
 use Symfony\Component\Form\PreloadedExtension;
 use Symfony\Component\Form\Test\TypeTestCase;

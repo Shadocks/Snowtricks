@@ -3,7 +3,7 @@
 namespace tests\Form;
 
 use App\Entity\Comment;
-use App\Form\CommentType;
+use App\Form\Type\CommentType;
 use Symfony\Component\Form\Test\TypeTestCase;
 
 /**

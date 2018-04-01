@@ -3,21 +3,20 @@
 namespace tests\Form;
 
 use App\Entity\User;
-use App\Form\ResetPasswordUserType;
+use App\Form\Type\ForgotPasswordUserType;
 use Symfony\Component\Form\Test\TypeTestCase;
 
 /**
- * Class ResetPasswordUserTypeTest.
+ * Class ForgotPasswordUserTypeTest.
  */
-class ResetPasswordUserTypeTest extends TypeTestCase
+class ForgotPasswordUserTypeTest extends TypeTestCase
 {
     public function testDataPass()
     {
         $user = new User();
-        $user->setMail('hulk.green@gmail.com');
-        $user->setPassword('lullaby');
+        $user->setUserName('Thor');
 
-        $form = $this->factory->create(ResetPasswordUserType::class, $user);
+        $form = $this->factory->create(ForgotPasswordUserType::class, $user);
 
         static::assertTrue($form->isSynchronized());
         static::assertEquals($user, $form->getData());

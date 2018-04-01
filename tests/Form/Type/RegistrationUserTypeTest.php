@@ -5,7 +5,7 @@ namespace tests\Form;
 use App\Entity\Picture;
 use App\Entity\User;
 use App\Form\Extension\PictureTypeExtension;
-use App\Form\RegistrationUserType;
+use App\Form\Type\RegistrationUserType;
 use App\Subscriber\Form\User\UserPictureSubscriber;
 use Symfony\Component\Form\PreloadedExtension;
 use Symfony\Component\Form\Test\TypeTestCase;
